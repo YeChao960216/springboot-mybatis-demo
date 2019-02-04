@@ -1,6 +1,4 @@
-package com.example.springbootmybatisgeneratortest.common.modle;
-
-import org.apache.xmlbeans.impl.xb.xsdschema.Public;
+package com.example.springbootmybatisgeneratortest.common;
 
 import java.util.UUID;
 

@@ -1,4 +1,4 @@
-package com.example.springbootmybatisgeneratortest.common.modle.modle;
+package com.example.springbootmybatisgeneratortest.common.modle;
 
 /**
  * @author 钱伟健 gonefutre

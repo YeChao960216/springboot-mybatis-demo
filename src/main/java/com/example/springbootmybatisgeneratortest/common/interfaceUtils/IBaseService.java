@@ -1,4 +1,4 @@
-package com.example.springbootmybatisgeneratortest.common.modle.interfaceUtils;
+package com.example.springbootmybatisgeneratortest.common.interfaceUtils;
 
 import java.util.List;
 

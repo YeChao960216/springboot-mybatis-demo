@@ -1,7 +1,7 @@
 /**
  * Copyright &copy; 2012-2014 cnjson.com All rights reserved.
  */
-package com.example.springbootmybatisgeneratortest.common.modle;
+package com.example.springbootmybatisgeneratortest.common;
 
 import java.text.ParseException;
 import java.util.Calendar;

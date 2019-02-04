@@ -1,4 +1,4 @@
-package com.example.springbootmybatisgeneratortest.common.modle.imageCode;
+package com.example.springbootmybatisgeneratortest.common.imageCode;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;

@@ -1,4 +1,4 @@
-package com.example.springbootmybatisgeneratortest.common.modle;
+package com.example.springbootmybatisgeneratortest.common;
 
 import org.springframework.format.annotation.DateTimeFormat;
 

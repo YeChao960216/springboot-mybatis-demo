@@ -1,7 +1,7 @@
 /**
  * Copyright (c) 2005-2012 springside.org.cn
  */
-package com.example.springbootmybatisgeneratortest.common.modle;
+package com.example.springbootmybatisgeneratortest.common;
 
 import java.util.List;
 import java.util.Map;

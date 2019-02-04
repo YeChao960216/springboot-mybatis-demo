@@ -1,4 +1,4 @@
-package com.example.springbootmybatisgeneratortest.common.modle.QRCode;
+package com.example.springbootmybatisgeneratortest.common.QRCode;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;

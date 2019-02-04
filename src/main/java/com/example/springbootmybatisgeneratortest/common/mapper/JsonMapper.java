@@ -1,7 +1,7 @@
 /**
  * Copyright &copy; 2012-2014 cnjson.com All rights reserved.
  */
-package com.example.springbootmybatisgeneratortest.common.modle.mapper;
+package com.example.springbootmybatisgeneratortest.common.mapper;
 
 import java.io.IOException;
 import java.util.List;
