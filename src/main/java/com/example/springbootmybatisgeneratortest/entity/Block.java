@@ -1,6 +1,6 @@
 package com.example.springbootmybatisgeneratortest.entity;
 
-import com.example.springbootmybatisgeneratortest.common.util.StringUtil;
+import com.example.springbootmybatisgeneratortest.common.modle.StringUtil;
 
 import java.util.Date;
 

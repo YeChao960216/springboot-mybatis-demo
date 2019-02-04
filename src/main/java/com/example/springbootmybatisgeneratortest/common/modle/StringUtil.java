@@ -1,4 +1,4 @@
-package com.example.springbootmybatisgeneratortest.common.util;
+package com.example.springbootmybatisgeneratortest.common.modle;
 
 import java.security.MessageDigest;
 
@@ -6,7 +6,7 @@ public class StringUtil {
     public static String applySha256(String input) {
         try {
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
-
+            //SHA-256摘要算法
             byte[] hash = digest.digest(input.getBytes("UTF-8"));
             StringBuilder hexString = new StringBuilder();
             for (int i = 0; i < hash.length; i++) {
