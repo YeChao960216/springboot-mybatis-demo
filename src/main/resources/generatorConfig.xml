@@ -22,7 +22,7 @@
         <!-- JDBC连接 其中connectionURL后面的newtest改为你创建的数据库，紧跟在后面是数据库连接的账户和密码-->
         <jdbcConnection
                 driverClass="com.mysql.jdbc.Driver"
-                connectionURL="jdbc:mysql://localhost:3306/test"
+                connectionURL="jdbc:mysql://localhost:3306/mysql_produce"
                 userId="root"
                 password="1234">
         </jdbcConnection>
@@ -59,11 +59,21 @@
         <!-- schema即为数据库名 tableName为对应的数据库表 domainObjectName是要生成的实体类 enable*ByExample
             是否生成 example类 -->
 
-        <table schema="test" tableName="mysql_game">
+        <table schema="mysql_produce" tableName="chemicals"/>
+        <table schema="mysql_produce" tableName="company"/>
+        <table schema="mysql_produce" tableName="grow"/>
+        <table schema="mysql_produce" tableName="growers"/>
+        <table schema="mysql_produce" tableName="manufacture"/>
+        <table schema="mysql_produce" tableName="market"/>
+        <table schema="mysql_produce" tableName="privilege"/>
+        <table schema="mysql_produce" tableName="role"/>
+        <table schema="mysql_produce" tableName="role_privilege"/>
+        <table schema="mysql_produce" tableName="trans"/>
+        <table schema="mysql_produce" tableName="user"/>
+        <table schema="mysql_produce" tableName="user_role"/>
                <!--domainObjectName="MysqlGame" enableCountByExample="true"
                enableDeleteByExample="true" enableSelectByExample="true"
                enableUpdateByExample="true"-->
-        </table>
 
     </context>
 </generatorConfiguration>

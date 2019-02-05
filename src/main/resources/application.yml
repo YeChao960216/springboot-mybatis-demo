@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/test
+    url: jdbc:mysql://127.0.0.1:3306/mysql_produce
     username: root
     password: 1234
 mybatis:

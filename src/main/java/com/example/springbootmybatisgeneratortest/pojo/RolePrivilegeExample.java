@@ -3,14 +3,14 @@ package com.example.springbootmybatisgeneratortest.pojo;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MysqlGameExample {
+public class RolePrivilegeExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public MysqlGameExample() {
+    public RolePrivilegeExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -104,133 +104,183 @@ public class MysqlGameExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andIdIsNull() {
-            addCriterion("id is null");
+        public Criteria andRolePrivilegeIdIsNull() {
+            addCriterion("role_privilege_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andIdIsNotNull() {
-            addCriterion("id is not null");
+        public Criteria andRolePrivilegeIdIsNotNull() {
+            addCriterion("role_privilege_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andIdEqualTo(Integer value) {
-            addCriterion("id =", value, "id");
+        public Criteria andRolePrivilegeIdEqualTo(Integer value) {
+            addCriterion("role_privilege_id =", value, "rolePrivilegeId");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotEqualTo(Integer value) {
-            addCriterion("id <>", value, "id");
+        public Criteria andRolePrivilegeIdNotEqualTo(Integer value) {
+            addCriterion("role_privilege_id <>", value, "rolePrivilegeId");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThan(Integer value) {
-            addCriterion("id >", value, "id");
+        public Criteria andRolePrivilegeIdGreaterThan(Integer value) {
+            addCriterion("role_privilege_id >", value, "rolePrivilegeId");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("id >=", value, "id");
+        public Criteria andRolePrivilegeIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("role_privilege_id >=", value, "rolePrivilegeId");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThan(Integer value) {
-            addCriterion("id <", value, "id");
+        public Criteria andRolePrivilegeIdLessThan(Integer value) {
+            addCriterion("role_privilege_id <", value, "rolePrivilegeId");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThanOrEqualTo(Integer value) {
-            addCriterion("id <=", value, "id");
+        public Criteria andRolePrivilegeIdLessThanOrEqualTo(Integer value) {
+            addCriterion("role_privilege_id <=", value, "rolePrivilegeId");
             return (Criteria) this;
         }
 
-        public Criteria andIdIn(List<Integer> values) {
-            addCriterion("id in", values, "id");
+        public Criteria andRolePrivilegeIdIn(List<Integer> values) {
+            addCriterion("role_privilege_id in", values, "rolePrivilegeId");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotIn(List<Integer> values) {
-            addCriterion("id not in", values, "id");
+        public Criteria andRolePrivilegeIdNotIn(List<Integer> values) {
+            addCriterion("role_privilege_id not in", values, "rolePrivilegeId");
             return (Criteria) this;
         }
 
-        public Criteria andIdBetween(Integer value1, Integer value2) {
-            addCriterion("id between", value1, value2, "id");
+        public Criteria andRolePrivilegeIdBetween(Integer value1, Integer value2) {
+            addCriterion("role_privilege_id between", value1, value2, "rolePrivilegeId");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("id not between", value1, value2, "id");
+        public Criteria andRolePrivilegeIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("role_privilege_id not between", value1, value2, "rolePrivilegeId");
             return (Criteria) this;
         }
 
-        public Criteria andGameNameIsNull() {
-            addCriterion("game_name is null");
+        public Criteria andRoleIdIsNull() {
+            addCriterion("role_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andGameNameIsNotNull() {
-            addCriterion("game_name is not null");
+        public Criteria andRoleIdIsNotNull() {
+            addCriterion("role_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andGameNameEqualTo(String value) {
-            addCriterion("game_name =", value, "gameName");
+        public Criteria andRoleIdEqualTo(Integer value) {
+            addCriterion("role_id =", value, "roleId");
             return (Criteria) this;
         }
 
-        public Criteria andGameNameNotEqualTo(String value) {
-            addCriterion("game_name <>", value, "gameName");
+        public Criteria andRoleIdNotEqualTo(Integer value) {
+            addCriterion("role_id <>", value, "roleId");
             return (Criteria) this;
         }
 
-        public Criteria andGameNameGreaterThan(String value) {
-            addCriterion("game_name >", value, "gameName");
+        public Criteria andRoleIdGreaterThan(Integer value) {
+            addCriterion("role_id >", value, "roleId");
             return (Criteria) this;
         }
 
-        public Criteria andGameNameGreaterThanOrEqualTo(String value) {
-            addCriterion("game_name >=", value, "gameName");
+        public Criteria andRoleIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("role_id >=", value, "roleId");
             return (Criteria) this;
         }
 
-        public Criteria andGameNameLessThan(String value) {
-            addCriterion("game_name <", value, "gameName");
+        public Criteria andRoleIdLessThan(Integer value) {
+            addCriterion("role_id <", value, "roleId");
             return (Criteria) this;
         }
 
-        public Criteria andGameNameLessThanOrEqualTo(String value) {
-            addCriterion("game_name <=", value, "gameName");
+        public Criteria andRoleIdLessThanOrEqualTo(Integer value) {
+            addCriterion("role_id <=", value, "roleId");
             return (Criteria) this;
         }
 
-        public Criteria andGameNameLike(String value) {
-            addCriterion("game_name like", value, "gameName");
+        public Criteria andRoleIdIn(List<Integer> values) {
+            addCriterion("role_id in", values, "roleId");
             return (Criteria) this;
         }
 
-        public Criteria andGameNameNotLike(String value) {
-            addCriterion("game_name not like", value, "gameName");
+        public Criteria andRoleIdNotIn(List<Integer> values) {
+            addCriterion("role_id not in", values, "roleId");
             return (Criteria) this;
         }
 
-        public Criteria andGameNameIn(List<String> values) {
-            addCriterion("game_name in", values, "gameName");
+        public Criteria andRoleIdBetween(Integer value1, Integer value2) {
+            addCriterion("role_id between", value1, value2, "roleId");
             return (Criteria) this;
         }
 
-        public Criteria andGameNameNotIn(List<String> values) {
-            addCriterion("game_name not in", values, "gameName");
+        public Criteria andRoleIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("role_id not between", value1, value2, "roleId");
             return (Criteria) this;
         }
 
-        public Criteria andGameNameBetween(String value1, String value2) {
-            addCriterion("game_name between", value1, value2, "gameName");
+        public Criteria andPrivilegeIdIsNull() {
+            addCriterion("privilege_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andGameNameNotBetween(String value1, String value2) {
-            addCriterion("game_name not between", value1, value2, "gameName");
+        public Criteria andPrivilegeIdIsNotNull() {
+            addCriterion("privilege_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPrivilegeIdEqualTo(Integer value) {
+            addCriterion("privilege_id =", value, "privilegeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPrivilegeIdNotEqualTo(Integer value) {
+            addCriterion("privilege_id <>", value, "privilegeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPrivilegeIdGreaterThan(Integer value) {
+            addCriterion("privilege_id >", value, "privilegeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPrivilegeIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("privilege_id >=", value, "privilegeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPrivilegeIdLessThan(Integer value) {
+            addCriterion("privilege_id <", value, "privilegeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPrivilegeIdLessThanOrEqualTo(Integer value) {
+            addCriterion("privilege_id <=", value, "privilegeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPrivilegeIdIn(List<Integer> values) {
+            addCriterion("privilege_id in", values, "privilegeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPrivilegeIdNotIn(List<Integer> values) {
+            addCriterion("privilege_id not in", values, "privilegeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPrivilegeIdBetween(Integer value1, Integer value2) {
+            addCriterion("privilege_id between", value1, value2, "privilegeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPrivilegeIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("privilege_id not between", value1, value2, "privilegeId");
             return (Criteria) this;
         }
     }

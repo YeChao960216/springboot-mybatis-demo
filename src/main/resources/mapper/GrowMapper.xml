@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.springbootmybatisgeneratortest.mapper.GrowMapper" >
+  <resultMap id="BaseResultMap" type="com.example.springbootmybatisgeneratortest.pojo.Grow" >
+    <id column="grow_id" property="growId" jdbcType="INTEGER" />
+    <result column="grower_id" property="growerId" jdbcType="INTEGER" />
+    <result column="grower_time" property="growerTime" jdbcType="VARCHAR" />
+    <result column="harvest_time" property="harvestTime" jdbcType="VARCHAR" />
+    <result column="flag" property="flag" jdbcType="VARCHAR" />
+    <result column="weight" property="weight" jdbcType="DOUBLE" />
+    <result column="unit" property="unit" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    grow_id, grower_id, grower_time, harvest_time, flag, weight, unit
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.springbootmybatisgeneratortest.pojo.GrowExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from grow
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from grow
+    where grow_id = #{growId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from grow
+    where grow_id = #{growId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.example.springbootmybatisgeneratortest.pojo.GrowExample" >
+    delete from grow
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.example.springbootmybatisgeneratortest.pojo.Grow" >
+    insert into grow (grow_id, grower_id, grower_time, 
+      harvest_time, flag, weight, 
+      unit)
+    values (#{growId,jdbcType=INTEGER}, #{growerId,jdbcType=INTEGER}, #{growerTime,jdbcType=VARCHAR}, 
+      #{harvestTime,jdbcType=VARCHAR}, #{flag,jdbcType=VARCHAR}, #{weight,jdbcType=DOUBLE}, 
+      #{unit,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.springbootmybatisgeneratortest.pojo.Grow" >
+    insert into grow
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="growId != null" >
+        grow_id,
+      </if>
+      <if test="growerId != null" >
+        grower_id,
+      </if>
+      <if test="growerTime != null" >
+        grower_time,
+      </if>
+      <if test="harvestTime != null" >
+        harvest_time,
+      </if>
+      <if test="flag != null" >
+        flag,
+      </if>
+      <if test="weight != null" >
+        weight,
+      </if>
+      <if test="unit != null" >
+        unit,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="growId != null" >
+        #{growId,jdbcType=INTEGER},
+      </if>
+      <if test="growerId != null" >
+        #{growerId,jdbcType=INTEGER},
+      </if>
+      <if test="growerTime != null" >
+        #{growerTime,jdbcType=VARCHAR},
+      </if>
+      <if test="harvestTime != null" >
+        #{harvestTime,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null" >
+        #{flag,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null" >
+        #{weight,jdbcType=DOUBLE},
+      </if>
+      <if test="unit != null" >
+        #{unit,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.example.springbootmybatisgeneratortest.pojo.GrowExample" resultType="java.lang.Integer" >
+    select count(*) from grow
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update grow
+    <set >
+      <if test="record.growId != null" >
+        grow_id = #{record.growId,jdbcType=INTEGER},
+      </if>
+      <if test="record.growerId != null" >
+        grower_id = #{record.growerId,jdbcType=INTEGER},
+      </if>
+      <if test="record.growerTime != null" >
+        grower_time = #{record.growerTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.harvestTime != null" >
+        harvest_time = #{record.harvestTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.flag != null" >
+        flag = #{record.flag,jdbcType=VARCHAR},
+      </if>
+      <if test="record.weight != null" >
+        weight = #{record.weight,jdbcType=DOUBLE},
+      </if>
+      <if test="record.unit != null" >
+        unit = #{record.unit,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update grow
+    set grow_id = #{record.growId,jdbcType=INTEGER},
+      grower_id = #{record.growerId,jdbcType=INTEGER},
+      grower_time = #{record.growerTime,jdbcType=VARCHAR},
+      harvest_time = #{record.harvestTime,jdbcType=VARCHAR},
+      flag = #{record.flag,jdbcType=VARCHAR},
+      weight = #{record.weight,jdbcType=DOUBLE},
+      unit = #{record.unit,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.springbootmybatisgeneratortest.pojo.Grow" >
+    update grow
+    <set >
+      <if test="growerId != null" >
+        grower_id = #{growerId,jdbcType=INTEGER},
+      </if>
+      <if test="growerTime != null" >
+        grower_time = #{growerTime,jdbcType=VARCHAR},
+      </if>
+      <if test="harvestTime != null" >
+        harvest_time = #{harvestTime,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null" >
+        flag = #{flag,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null" >
+        weight = #{weight,jdbcType=DOUBLE},
+      </if>
+      <if test="unit != null" >
+        unit = #{unit,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where grow_id = #{growId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.springbootmybatisgeneratortest.pojo.Grow" >
+    update grow
+    set grower_id = #{growerId,jdbcType=INTEGER},
+      grower_time = #{growerTime,jdbcType=VARCHAR},
+      harvest_time = #{harvestTime,jdbcType=VARCHAR},
+      flag = #{flag,jdbcType=VARCHAR},
+      weight = #{weight,jdbcType=DOUBLE},
+      unit = #{unit,jdbcType=VARCHAR}
+    where grow_id = #{growId,jdbcType=INTEGER}
+  </update>
+</mapper>

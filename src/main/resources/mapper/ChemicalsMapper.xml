@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.springbootmybatisgeneratortest.mapper.ChemicalsMapper" >
+  <resultMap id="BaseResultMap" type="com.example.springbootmybatisgeneratortest.pojo.Chemicals" >
+    <id column="chemicals_id" property="chemicalsId" jdbcType="INTEGER" />
+    <result column="grow_id" property="growId" jdbcType="INTEGER" />
+    <result column="use_date" property="useDate" jdbcType="VARCHAR" />
+    <result column="formula" property="formula" jdbcType="VARCHAR" />
+    <result column="dosage" property="dosage" jdbcType="DOUBLE" />
+    <result column="flag" property="flag" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    chemicals_id, grow_id, use_date, formula, dosage, flag
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.springbootmybatisgeneratortest.pojo.ChemicalsExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from chemicals
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from chemicals
+    where chemicals_id = #{chemicalsId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from chemicals
+    where chemicals_id = #{chemicalsId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.example.springbootmybatisgeneratortest.pojo.ChemicalsExample" >
+    delete from chemicals
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.example.springbootmybatisgeneratortest.pojo.Chemicals" >
+    insert into chemicals (chemicals_id, grow_id, use_date, 
+      formula, dosage, flag
+      )
+    values (#{chemicalsId,jdbcType=INTEGER}, #{growId,jdbcType=INTEGER}, #{useDate,jdbcType=VARCHAR}, 
+      #{formula,jdbcType=VARCHAR}, #{dosage,jdbcType=DOUBLE}, #{flag,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.springbootmybatisgeneratortest.pojo.Chemicals" >
+    insert into chemicals
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="chemicalsId != null" >
+        chemicals_id,
+      </if>
+      <if test="growId != null" >
+        grow_id,
+      </if>
+      <if test="useDate != null" >
+        use_date,
+      </if>
+      <if test="formula != null" >
+        formula,
+      </if>
+      <if test="dosage != null" >
+        dosage,
+      </if>
+      <if test="flag != null" >
+        flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="chemicalsId != null" >
+        #{chemicalsId,jdbcType=INTEGER},
+      </if>
+      <if test="growId != null" >
+        #{growId,jdbcType=INTEGER},
+      </if>
+      <if test="useDate != null" >
+        #{useDate,jdbcType=VARCHAR},
+      </if>
+      <if test="formula != null" >
+        #{formula,jdbcType=VARCHAR},
+      </if>
+      <if test="dosage != null" >
+        #{dosage,jdbcType=DOUBLE},
+      </if>
+      <if test="flag != null" >
+        #{flag,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.example.springbootmybatisgeneratortest.pojo.ChemicalsExample" resultType="java.lang.Integer" >
+    select count(*) from chemicals
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update chemicals
+    <set >
+      <if test="record.chemicalsId != null" >
+        chemicals_id = #{record.chemicalsId,jdbcType=INTEGER},
+      </if>
+      <if test="record.growId != null" >
+        grow_id = #{record.growId,jdbcType=INTEGER},
+      </if>
+      <if test="record.useDate != null" >
+        use_date = #{record.useDate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.formula != null" >
+        formula = #{record.formula,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dosage != null" >
+        dosage = #{record.dosage,jdbcType=DOUBLE},
+      </if>
+      <if test="record.flag != null" >
+        flag = #{record.flag,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update chemicals
+    set chemicals_id = #{record.chemicalsId,jdbcType=INTEGER},
+      grow_id = #{record.growId,jdbcType=INTEGER},
+      use_date = #{record.useDate,jdbcType=VARCHAR},
+      formula = #{record.formula,jdbcType=VARCHAR},
+      dosage = #{record.dosage,jdbcType=DOUBLE},
+      flag = #{record.flag,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.springbootmybatisgeneratortest.pojo.Chemicals" >
+    update chemicals
+    <set >
+      <if test="growId != null" >
+        grow_id = #{growId,jdbcType=INTEGER},
+      </if>
+      <if test="useDate != null" >
+        use_date = #{useDate,jdbcType=VARCHAR},
+      </if>
+      <if test="formula != null" >
+        formula = #{formula,jdbcType=VARCHAR},
+      </if>
+      <if test="dosage != null" >
+        dosage = #{dosage,jdbcType=DOUBLE},
+      </if>
+      <if test="flag != null" >
+        flag = #{flag,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where chemicals_id = #{chemicalsId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.springbootmybatisgeneratortest.pojo.Chemicals" >
+    update chemicals
+    set grow_id = #{growId,jdbcType=INTEGER},
+      use_date = #{useDate,jdbcType=VARCHAR},
+      formula = #{formula,jdbcType=VARCHAR},
+      dosage = #{dosage,jdbcType=DOUBLE},
+      flag = #{flag,jdbcType=VARCHAR}
+    where chemicals_id = #{chemicalsId,jdbcType=INTEGER}
+  </update>
+</mapper>
