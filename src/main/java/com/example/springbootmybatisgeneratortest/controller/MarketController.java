@@ -7,6 +7,7 @@ import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -24,7 +25,7 @@ public class MarketController {
         }
         PageHelper.startPage(pageNum, pageSize);
         PageHelper.orderBy(sort);
-        List<Market> list = marketService.select(entity);
+        List<Market> list = new ArrayList<>(marketService.select(entity));
         return new PageInfo<Market>(list);
     }
 
