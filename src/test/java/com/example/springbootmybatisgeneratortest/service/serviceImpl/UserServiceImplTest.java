@@ -17,14 +17,16 @@ public class UserServiceImplTest {
     UserService userService;
 
     @Test
-    public void add() {
-        User user=new User();
-        user.setName("测试");
-        userService.add(user);
+    public void add() throws Exception {
+        User user = new User();
+        user.setUserId("测试");
+        userService.insert(user);
     }
 
     @Test
-    public void get() {
-        System.out.println(userService.get(1));
+    public void get() throws Exception {
+        User user = new User();
+        user.setUserId("测试");
+        System.out.println(userService.select(user));
     }
 }

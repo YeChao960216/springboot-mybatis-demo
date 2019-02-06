@@ -26,13 +26,14 @@ import java.util.Map;
 public class QRCodeUtil {
     /**
      * 生成并下载二维码
-     * @param url 二维码对于URL
-     * @param width 二维码宽
+     *
+     * @param url    二维码对于URL
+     * @param width  二维码宽
      * @param height 二维码高
-     * @param format  二维码格式
-     * @return  字节数组流
-     * @throws WriterException  写入文件错误
-     * @throws IOException  输入输出错误
+     * @param format 二维码格式
+     * @return 字节数组流
+     * @throws WriterException 写入文件错误
+     * @throws IOException     输入输出错误
      */
     public static ResponseEntity<byte[]> getResponseEntity(String url, int width, int height, String format) throws WriterException, IOException {
         Map<EncodeHintType, Object> hints = new HashMap<EncodeHintType, Object>();

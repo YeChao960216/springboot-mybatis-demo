@@ -2,15 +2,16 @@ package com.example.springbootmybatisgeneratortest.mapper;
 
 import com.example.springbootmybatisgeneratortest.pojo.Growers;
 import com.example.springbootmybatisgeneratortest.pojo.GrowersExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface GrowersMapper {
     int countByExample(GrowersExample example);
 
     int deleteByExample(GrowersExample example);
 
-    int deleteByPrimaryKey(Integer growersId);
+    int deleteByPrimaryKey(String growersId);
 
     int insert(Growers record);
 
@@ -18,7 +19,7 @@ public interface GrowersMapper {
 
     List<Growers> selectByExample(GrowersExample example);
 
-    Growers selectByPrimaryKey(Integer growersId);
+    Growers selectByPrimaryKey(String growersId);
 
     int updateByExampleSelective(@Param("record") Growers record, @Param("example") GrowersExample example);
 

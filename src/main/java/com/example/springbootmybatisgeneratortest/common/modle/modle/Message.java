@@ -4,11 +4,11 @@ package com.example.springbootmybatisgeneratortest.common.modle;
  * @author 钱伟健 gonefutre
  * @date 2017/8/1 22:25.
  * @E-mail gonefuture@qq.com
- *
+ * <p>
  * 说明：状态信息类
  */
 public class Message {
-   //状态码
+    //状态码
     private String status;
     //具体信息
     private String msg;

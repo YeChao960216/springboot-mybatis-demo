@@ -1,314 +1,333 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.example.springbootmybatisgeneratortest.mapper.ManufactureMapper" >
-  <resultMap id="BaseResultMap" type="com.example.springbootmybatisgeneratortest.pojo.Manufacture" >
-    <id column="manufacture_id" property="manufactureId" jdbcType="INTEGER" />
-    <result column="company_id" property="companyId" jdbcType="INTEGER" />
-    <result column="grow_id" property="growId" jdbcType="INTEGER" />
-    <result column="manufacture_date" property="manufactureDate" jdbcType="VARCHAR" />
-    <result column="validity_date" property="validityDate" jdbcType="VARCHAR" />
-    <result column="site" property="site" jdbcType="VARCHAR" />
-    <result column="method" property="method" jdbcType="VARCHAR" />
-    <result column="charge_id" property="chargeId" jdbcType="VARCHAR" />
-    <result column="flag" property="flag" jdbcType="VARCHAR" />
-    <result column="charge_name" property="chargeName" jdbcType="VARCHAR" />
-    <result column="weight" property="weight" jdbcType="DOUBLE" />
-    <result column="unit" property="unit" jdbcType="VARCHAR" />
-  </resultMap>
-  <sql id="Example_Where_Clause" >
-    <where >
-      <foreach collection="oredCriteria" item="criteria" separator="or" >
-        <if test="criteria.valid" >
-          <trim prefix="(" suffix=")" prefixOverrides="and" >
-            <foreach collection="criteria.criteria" item="criterion" >
-              <choose >
-                <when test="criterion.noValue" >
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue" >
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue" >
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue" >
-                  and ${criterion.condition}
-                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
+<mapper namespace="com.example.springbootmybatisgeneratortest.mapper.ManufactureMapper">
+    <resultMap id="BaseResultMap" type="com.example.springbootmybatisgeneratortest.pojo.Manufacture">
+        <id column="manufacture_id" property="manufactureId" jdbcType="VARCHAR"/>
+        <result column="company_id" property="companyId" jdbcType="VARCHAR"/>
+        <result column="grow_id" property="growId" jdbcType="VARCHAR"/>
+        <result column="manufacture_date" property="manufactureDate" jdbcType="VARCHAR"/>
+        <result column="validity_date" property="validityDate" jdbcType="VARCHAR"/>
+        <result column="site" property="site" jdbcType="VARCHAR"/>
+        <result column="method" property="method" jdbcType="VARCHAR"/>
+        <result column="charge_id" property="chargeId" jdbcType="VARCHAR"/>
+        <result column="flag" property="flag" jdbcType="VARCHAR"/>
+        <result column="charge_name" property="chargeName" jdbcType="VARCHAR"/>
+        <result column="weight" property="weight" jdbcType="DOUBLE"/>
+        <result column="unit" property="unit" jdbcType="VARCHAR"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" suffix=")" prefixOverrides="and">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")"
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
             </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Update_By_Example_Where_Clause" >
-    <where >
-      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
-        <if test="criteria.valid" >
-          <trim prefix="(" suffix=")" prefixOverrides="and" >
-            <foreach collection="criteria.criteria" item="criterion" >
-              <choose >
-                <when test="criterion.noValue" >
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue" >
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue" >
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue" >
-                  and ${criterion.condition}
-                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
+        </where>
+    </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" suffix=")" prefixOverrides="and">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")"
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
             </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Base_Column_List" >
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
     manufacture_id, company_id, grow_id, manufacture_date, validity_date, site, method, 
-    charge_id, flag, charge_name, weight, unit
+    charge_id, flag, charge_name, weight, unit, create_time
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.springbootmybatisgeneratortest.pojo.ManufactureExample" >
-    select
-    <if test="distinct" >
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    from manufacture
-    <if test="_parameter != null" >
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null" >
-      order by ${orderByClause}
-    </if>
-  </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
-    <include refid="Base_Column_List" />
-    from manufacture
-    where manufacture_id = #{manufactureId,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <select id="selectByExample" resultMap="BaseResultMap"
+            parameterType="com.example.springbootmybatisgeneratortest.pojo.ManufactureExample">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List"/>
+        from manufacture
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from manufacture
+        where manufacture_id = #{manufactureId,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from manufacture
-    where manufacture_id = #{manufactureId,jdbcType=INTEGER}
+    where manufacture_id = #{manufactureId,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="com.example.springbootmybatisgeneratortest.pojo.ManufactureExample" >
-    delete from manufacture
-    <if test="_parameter != null" >
-      <include refid="Example_Where_Clause" />
-    </if>
-  </delete>
-  <insert id="insert" parameterType="com.example.springbootmybatisgeneratortest.pojo.Manufacture" >
+    <delete id="deleteByExample" parameterType="com.example.springbootmybatisgeneratortest.pojo.ManufactureExample">
+        delete from manufacture
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </delete>
+    <insert id="insert" parameterType="com.example.springbootmybatisgeneratortest.pojo.Manufacture">
     insert into manufacture (manufacture_id, company_id, grow_id, 
       manufacture_date, validity_date, site, 
       method, charge_id, flag, 
-      charge_name, weight, unit
-      )
-    values (#{manufactureId,jdbcType=INTEGER}, #{companyId,jdbcType=INTEGER}, #{growId,jdbcType=INTEGER}, 
+      charge_name, weight, unit, 
+      create_time)
+    values (#{manufactureId,jdbcType=VARCHAR}, #{companyId,jdbcType=VARCHAR}, #{growId,jdbcType=VARCHAR}, 
       #{manufactureDate,jdbcType=VARCHAR}, #{validityDate,jdbcType=VARCHAR}, #{site,jdbcType=VARCHAR}, 
       #{method,jdbcType=VARCHAR}, #{chargeId,jdbcType=VARCHAR}, #{flag,jdbcType=VARCHAR}, 
-      #{chargeName,jdbcType=VARCHAR}, #{weight,jdbcType=DOUBLE}, #{unit,jdbcType=VARCHAR}
-      )
+      #{chargeName,jdbcType=VARCHAR}, #{weight,jdbcType=DOUBLE}, #{unit,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.example.springbootmybatisgeneratortest.pojo.Manufacture" >
-    insert into manufacture
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="manufactureId != null" >
-        manufacture_id,
-      </if>
-      <if test="companyId != null" >
-        company_id,
-      </if>
-      <if test="growId != null" >
-        grow_id,
-      </if>
-      <if test="manufactureDate != null" >
-        manufacture_date,
-      </if>
-      <if test="validityDate != null" >
-        validity_date,
-      </if>
-      <if test="site != null" >
-        site,
-      </if>
-      <if test="method != null" >
-        method,
-      </if>
-      <if test="chargeId != null" >
-        charge_id,
-      </if>
-      <if test="flag != null" >
-        flag,
-      </if>
-      <if test="chargeName != null" >
-        charge_name,
-      </if>
-      <if test="weight != null" >
-        weight,
-      </if>
-      <if test="unit != null" >
-        unit,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="manufactureId != null" >
-        #{manufactureId,jdbcType=INTEGER},
-      </if>
-      <if test="companyId != null" >
-        #{companyId,jdbcType=INTEGER},
-      </if>
-      <if test="growId != null" >
-        #{growId,jdbcType=INTEGER},
-      </if>
-      <if test="manufactureDate != null" >
-        #{manufactureDate,jdbcType=VARCHAR},
-      </if>
-      <if test="validityDate != null" >
-        #{validityDate,jdbcType=VARCHAR},
-      </if>
-      <if test="site != null" >
-        #{site,jdbcType=VARCHAR},
-      </if>
-      <if test="method != null" >
-        #{method,jdbcType=VARCHAR},
-      </if>
-      <if test="chargeId != null" >
-        #{chargeId,jdbcType=VARCHAR},
-      </if>
-      <if test="flag != null" >
-        #{flag,jdbcType=VARCHAR},
-      </if>
-      <if test="chargeName != null" >
-        #{chargeName,jdbcType=VARCHAR},
-      </if>
-      <if test="weight != null" >
-        #{weight,jdbcType=DOUBLE},
-      </if>
-      <if test="unit != null" >
-        #{unit,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <select id="countByExample" parameterType="com.example.springbootmybatisgeneratortest.pojo.ManufactureExample" resultType="java.lang.Integer" >
-    select count(*) from manufacture
-    <if test="_parameter != null" >
-      <include refid="Example_Where_Clause" />
-    </if>
-  </select>
-  <update id="updateByExampleSelective" parameterType="map" >
-    update manufacture
-    <set >
-      <if test="record.manufactureId != null" >
-        manufacture_id = #{record.manufactureId,jdbcType=INTEGER},
-      </if>
-      <if test="record.companyId != null" >
-        company_id = #{record.companyId,jdbcType=INTEGER},
-      </if>
-      <if test="record.growId != null" >
-        grow_id = #{record.growId,jdbcType=INTEGER},
-      </if>
-      <if test="record.manufactureDate != null" >
+    <insert id="insertSelective" parameterType="com.example.springbootmybatisgeneratortest.pojo.Manufacture">
+        insert into manufacture
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="manufactureId != null">
+                manufacture_id,
+            </if>
+            <if test="companyId != null">
+                company_id,
+            </if>
+            <if test="growId != null">
+                grow_id,
+            </if>
+            <if test="manufactureDate != null">
+                manufacture_date,
+            </if>
+            <if test="validityDate != null">
+                validity_date,
+            </if>
+            <if test="site != null">
+                site,
+            </if>
+            <if test="method != null">
+                method,
+            </if>
+            <if test="chargeId != null">
+                charge_id,
+            </if>
+            <if test="flag != null">
+                flag,
+            </if>
+            <if test="chargeName != null">
+                charge_name,
+            </if>
+            <if test="weight != null">
+                weight,
+            </if>
+            <if test="unit != null">
+                unit,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="manufactureId != null">
+                #{manufactureId,jdbcType=VARCHAR},
+            </if>
+            <if test="companyId != null">
+                #{companyId,jdbcType=VARCHAR},
+            </if>
+            <if test="growId != null">
+                #{growId,jdbcType=VARCHAR},
+            </if>
+            <if test="manufactureDate != null">
+                #{manufactureDate,jdbcType=VARCHAR},
+            </if>
+            <if test="validityDate != null">
+                #{validityDate,jdbcType=VARCHAR},
+            </if>
+            <if test="site != null">
+                #{site,jdbcType=VARCHAR},
+            </if>
+            <if test="method != null">
+                #{method,jdbcType=VARCHAR},
+            </if>
+            <if test="chargeId != null">
+                #{chargeId,jdbcType=VARCHAR},
+            </if>
+            <if test="flag != null">
+                #{flag,jdbcType=VARCHAR},
+            </if>
+            <if test="chargeName != null">
+                #{chargeName,jdbcType=VARCHAR},
+            </if>
+            <if test="weight != null">
+                #{weight,jdbcType=DOUBLE},
+            </if>
+            <if test="unit != null">
+                #{unit,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <select id="countByExample" parameterType="com.example.springbootmybatisgeneratortest.pojo.ManufactureExample"
+            resultType="java.lang.Integer">
+        select count(*) from manufacture
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
+        update manufacture
+        <set>
+            <if test="record.manufactureId != null">
+                manufacture_id = #{record.manufactureId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.companyId != null">
+                company_id = #{record.companyId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.growId != null">
+                grow_id = #{record.growId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.manufactureDate != null">
+                manufacture_date = #{record.manufactureDate,jdbcType=VARCHAR},
+            </if>
+            <if test="record.validityDate != null">
+                validity_date = #{record.validityDate,jdbcType=VARCHAR},
+            </if>
+            <if test="record.site != null">
+                site = #{record.site,jdbcType=VARCHAR},
+            </if>
+            <if test="record.method != null">
+                method = #{record.method,jdbcType=VARCHAR},
+            </if>
+            <if test="record.chargeId != null">
+                charge_id = #{record.chargeId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.flag != null">
+                flag = #{record.flag,jdbcType=VARCHAR},
+            </if>
+            <if test="record.chargeName != null">
+                charge_name = #{record.chargeName,jdbcType=VARCHAR},
+            </if>
+            <if test="record.weight != null">
+                weight = #{record.weight,jdbcType=DOUBLE},
+            </if>
+            <if test="record.unit != null">
+                unit = #{record.unit,jdbcType=VARCHAR},
+            </if>
+            <if test="record.createTime != null">
+                create_time = #{record.createTime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByExample" parameterType="map">
+        update manufacture
+        set manufacture_id = #{record.manufactureId,jdbcType=VARCHAR},
+        company_id = #{record.companyId,jdbcType=VARCHAR},
+        grow_id = #{record.growId,jdbcType=VARCHAR},
         manufacture_date = #{record.manufactureDate,jdbcType=VARCHAR},
-      </if>
-      <if test="record.validityDate != null" >
         validity_date = #{record.validityDate,jdbcType=VARCHAR},
-      </if>
-      <if test="record.site != null" >
         site = #{record.site,jdbcType=VARCHAR},
-      </if>
-      <if test="record.method != null" >
         method = #{record.method,jdbcType=VARCHAR},
-      </if>
-      <if test="record.chargeId != null" >
         charge_id = #{record.chargeId,jdbcType=VARCHAR},
-      </if>
-      <if test="record.flag != null" >
         flag = #{record.flag,jdbcType=VARCHAR},
-      </if>
-      <if test="record.chargeName != null" >
         charge_name = #{record.chargeName,jdbcType=VARCHAR},
-      </if>
-      <if test="record.weight != null" >
         weight = #{record.weight,jdbcType=DOUBLE},
-      </if>
-      <if test="record.unit != null" >
         unit = #{record.unit,jdbcType=VARCHAR},
-      </if>
-    </set>
-    <if test="_parameter != null" >
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByExample" parameterType="map" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP}
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByPrimaryKeySelective"
+            parameterType="com.example.springbootmybatisgeneratortest.pojo.Manufacture">
+        update manufacture
+        <set>
+            <if test="companyId != null">
+                company_id = #{companyId,jdbcType=VARCHAR},
+            </if>
+            <if test="growId != null">
+                grow_id = #{growId,jdbcType=VARCHAR},
+            </if>
+            <if test="manufactureDate != null">
+                manufacture_date = #{manufactureDate,jdbcType=VARCHAR},
+            </if>
+            <if test="validityDate != null">
+                validity_date = #{validityDate,jdbcType=VARCHAR},
+            </if>
+            <if test="site != null">
+                site = #{site,jdbcType=VARCHAR},
+            </if>
+            <if test="method != null">
+                method = #{method,jdbcType=VARCHAR},
+            </if>
+            <if test="chargeId != null">
+                charge_id = #{chargeId,jdbcType=VARCHAR},
+            </if>
+            <if test="flag != null">
+                flag = #{flag,jdbcType=VARCHAR},
+            </if>
+            <if test="chargeName != null">
+                charge_name = #{chargeName,jdbcType=VARCHAR},
+            </if>
+            <if test="weight != null">
+                weight = #{weight,jdbcType=DOUBLE},
+            </if>
+            <if test="unit != null">
+                unit = #{unit,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where manufacture_id = #{manufactureId,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.example.springbootmybatisgeneratortest.pojo.Manufacture">
     update manufacture
-    set manufacture_id = #{record.manufactureId,jdbcType=INTEGER},
-      company_id = #{record.companyId,jdbcType=INTEGER},
-      grow_id = #{record.growId,jdbcType=INTEGER},
-      manufacture_date = #{record.manufactureDate,jdbcType=VARCHAR},
-      validity_date = #{record.validityDate,jdbcType=VARCHAR},
-      site = #{record.site,jdbcType=VARCHAR},
-      method = #{record.method,jdbcType=VARCHAR},
-      charge_id = #{record.chargeId,jdbcType=VARCHAR},
-      flag = #{record.flag,jdbcType=VARCHAR},
-      charge_name = #{record.chargeName,jdbcType=VARCHAR},
-      weight = #{record.weight,jdbcType=DOUBLE},
-      unit = #{record.unit,jdbcType=VARCHAR}
-    <if test="_parameter != null" >
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.springbootmybatisgeneratortest.pojo.Manufacture" >
-    update manufacture
-    <set >
-      <if test="companyId != null" >
-        company_id = #{companyId,jdbcType=INTEGER},
-      </if>
-      <if test="growId != null" >
-        grow_id = #{growId,jdbcType=INTEGER},
-      </if>
-      <if test="manufactureDate != null" >
-        manufacture_date = #{manufactureDate,jdbcType=VARCHAR},
-      </if>
-      <if test="validityDate != null" >
-        validity_date = #{validityDate,jdbcType=VARCHAR},
-      </if>
-      <if test="site != null" >
-        site = #{site,jdbcType=VARCHAR},
-      </if>
-      <if test="method != null" >
-        method = #{method,jdbcType=VARCHAR},
-      </if>
-      <if test="chargeId != null" >
-        charge_id = #{chargeId,jdbcType=VARCHAR},
-      </if>
-      <if test="flag != null" >
-        flag = #{flag,jdbcType=VARCHAR},
-      </if>
-      <if test="chargeName != null" >
-        charge_name = #{chargeName,jdbcType=VARCHAR},
-      </if>
-      <if test="weight != null" >
-        weight = #{weight,jdbcType=DOUBLE},
-      </if>
-      <if test="unit != null" >
-        unit = #{unit,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where manufacture_id = #{manufactureId,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.springbootmybatisgeneratortest.pojo.Manufacture" >
-    update manufacture
-    set company_id = #{companyId,jdbcType=INTEGER},
-      grow_id = #{growId,jdbcType=INTEGER},
+    set company_id = #{companyId,jdbcType=VARCHAR},
+      grow_id = #{growId,jdbcType=VARCHAR},
       manufacture_date = #{manufactureDate,jdbcType=VARCHAR},
       validity_date = #{validityDate,jdbcType=VARCHAR},
       site = #{site,jdbcType=VARCHAR},
@@ -317,7 +336,8 @@
       flag = #{flag,jdbcType=VARCHAR},
       charge_name = #{chargeName,jdbcType=VARCHAR},
       weight = #{weight,jdbcType=DOUBLE},
-      unit = #{unit,jdbcType=VARCHAR}
-    where manufacture_id = #{manufactureId,jdbcType=INTEGER}
+      unit = #{unit,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where manufacture_id = #{manufactureId,jdbcType=VARCHAR}
   </update>
 </mapper>

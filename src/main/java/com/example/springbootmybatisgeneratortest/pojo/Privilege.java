@@ -1,7 +1,7 @@
 package com.example.springbootmybatisgeneratortest.pojo;
 
 public class Privilege {
-    private Integer privilegeId;
+    private String privilegeId;
 
     private String privilegeName;
 
@@ -9,12 +9,12 @@ public class Privilege {
 
     private String flag;
 
-    public Integer getPrivilegeId() {
+    public String getPrivilegeId() {
         return privilegeId;
     }
 
-    public void setPrivilegeId(Integer privilegeId) {
-        this.privilegeId = privilegeId;
+    public void setPrivilegeId(String privilegeId) {
+        this.privilegeId = privilegeId == null ? null : privilegeId.trim();
     }
 
     public String getPrivilegeName() {

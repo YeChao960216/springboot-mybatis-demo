@@ -1,33 +1,33 @@
 package com.example.springbootmybatisgeneratortest.pojo;
 
 public class RolePrivilege {
-    private Integer rolePrivilegeId;
+    private String rolePrivilegeId;
 
-    private Integer roleId;
+    private String roleId;
 
-    private Integer privilegeId;
+    private String privilegeId;
 
-    public Integer getRolePrivilegeId() {
+    public String getRolePrivilegeId() {
         return rolePrivilegeId;
     }
 
-    public void setRolePrivilegeId(Integer rolePrivilegeId) {
-        this.rolePrivilegeId = rolePrivilegeId;
+    public void setRolePrivilegeId(String rolePrivilegeId) {
+        this.rolePrivilegeId = rolePrivilegeId == null ? null : rolePrivilegeId.trim();
     }
 
-    public Integer getRoleId() {
+    public String getRoleId() {
         return roleId;
     }
 
-    public void setRoleId(Integer roleId) {
-        this.roleId = roleId;
+    public void setRoleId(String roleId) {
+        this.roleId = roleId == null ? null : roleId.trim();
     }
 
-    public Integer getPrivilegeId() {
+    public String getPrivilegeId() {
         return privilegeId;
     }
 
-    public void setPrivilegeId(Integer privilegeId) {
-        this.privilegeId = privilegeId;
+    public void setPrivilegeId(String privilegeId) {
+        this.privilegeId = privilegeId == null ? null : privilegeId.trim();
     }
 }

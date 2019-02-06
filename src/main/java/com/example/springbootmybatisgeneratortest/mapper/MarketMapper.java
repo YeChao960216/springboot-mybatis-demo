@@ -2,8 +2,9 @@ package com.example.springbootmybatisgeneratortest.mapper;
 
 import com.example.springbootmybatisgeneratortest.pojo.Market;
 import com.example.springbootmybatisgeneratortest.pojo.MarketExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface MarketMapper {
     int countByExample(MarketExample example);

@@ -4,11 +4,11 @@ package com.example.springbootmybatisgeneratortest.common;
  * @author ChaceYip
  * @date 2018/8/1 22:25.
  * @E-mail yc755909707@163.com
- *
+ * <p>
  * 说明：状态信息类
  */
 public class Message {
-   //状态码
+    //状态码
     private String status;
     //具体信息
     private String msg;

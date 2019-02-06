@@ -13,16 +13,16 @@ import java.util.List;
 public class Hbase {
     private static Admin admin;
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         try {
-            createTable("user_table", new String[] { "information", "contact" });
+            createTable("user_table", new String[]{"information", "contact"});
             User user = new User("001", "xiaoming", "123456", "man", "20", "13355550021", "1232821@csdn.com");
             insertData("user_table", user);
             User user2 = new User("002", "xiaohong", "654321", "female", "18", "18757912212", "214214@csdn.com");
             insertData("user_table", user2);
             List<User> list = getAllData("user_table");
             System.out.println("--------------------插入两条数据后--------------------");
-            for (User user3 : list){
+            for (User user3 : list) {
                 System.out.println(user3.toString());
             }
             System.out.println("--------------------获取原始数据-----------------------");
@@ -37,13 +37,13 @@ public class Hbase {
             insertData("user_table", user5);
             List<User> list2 = getAllData("user_table");
             System.out.println("--------------------插入测试数据后--------------------");
-            for (User user6 : list2){
+            for (User user6 : list2) {
                 System.out.println(user6.toString());
             }
             deleteByRowKey("user_table", "user-test-003");
             List<User> list3 = getAllData("user_table");
             System.out.println("--------------------删除测试数据后--------------------");
-            for (User user7 : list3){
+            for (User user7 : list3) {
                 System.out.println(user7.toString());
             }
         } catch (Exception e) {
@@ -86,9 +86,9 @@ public class Hbase {
         TableName tablename = TableName.valueOf(tableName);
         Put put = new Put(("user-" + user.getId()).getBytes());
         //参数：1.列族名  2.列名  3.值
-        put.addColumn("information".getBytes(), "username".getBytes(), user.getUsername().getBytes()) ;
-        put.addColumn("information".getBytes(), "age".getBytes(), user.getAge().getBytes()) ;
-        put.addColumn("information".getBytes(), "gender".getBytes(), user.getGender().getBytes()) ;
+        put.addColumn("information".getBytes(), "username".getBytes(), user.getUsername().getBytes());
+        put.addColumn("information".getBytes(), "age".getBytes(), user.getAge().getBytes());
+        put.addColumn("information".getBytes(), "gender".getBytes(), user.getGender().getBytes());
         put.addColumn("contact".getBytes(), "phone".getBytes(), user.getPhone().getBytes());
         put.addColumn("contact".getBytes(), "email".getBytes(), user.getEmail().getBytes());
         //HTable table = new HTable(initHbase().getConfiguration(),tablename);已弃用
@@ -97,12 +97,12 @@ public class Hbase {
     }
 
     //获取原始数据
-    public static void getNoDealData(String tableName){
+    public static void getNoDealData(String tableName) {
         try {
-            Table table= initHbase().getTable(TableName.valueOf(tableName));
+            Table table = initHbase().getTable(TableName.valueOf(tableName));
             Scan scan = new Scan();
             ResultScanner resutScanner = table.getScanner(scan);
-            for(Result result: resutScanner){
+            for (Result result : resutScanner) {
                 System.out.println("scan:  " + result);
             }
         } catch (IOException e) {
@@ -118,24 +118,24 @@ public class Hbase {
         User user = new User();
         user.setId(rowKey);
         //先判断是否有此条数据
-        if(!get.isCheckExistenceOnly()){
+        if (!get.isCheckExistenceOnly()) {
             Result result = table.get(get);
-            for (Cell cell : result.rawCells()){
-                String colName = Bytes.toString(cell.getQualifierArray(),cell.getQualifierOffset(),cell.getQualifierLength());
+            for (Cell cell : result.rawCells()) {
+                String colName = Bytes.toString(cell.getQualifierArray(), cell.getQualifierOffset(), cell.getQualifierLength());
                 String value = Bytes.toString(cell.getValueArray(), cell.getValueOffset(), cell.getValueLength());
-                if(colName.equals("username")){
+                if (colName.equals("username")) {
                     user.setUsername(value);
                 }
-                if(colName.equals("age")){
+                if (colName.equals("age")) {
                     user.setAge(value);
                 }
-                if (colName.equals("gender")){
+                if (colName.equals("gender")) {
                     user.setGender(value);
                 }
-                if (colName.equals("phone")){
+                if (colName.equals("phone")) {
                     user.setPhone(value);
                 }
-                if (colName.equals("email")){
+                if (colName.equals("email")) {
                     user.setEmail(value);
                 }
             }
@@ -144,18 +144,18 @@ public class Hbase {
     }
 
     //查询指定单cell内容
-    public static String getCellData(String tableName, String rowKey, String family, String col){
+    public static String getCellData(String tableName, String rowKey, String family, String col) {
 
         try {
             Table table = initHbase().getTable(TableName.valueOf(tableName));
             String result = null;
             Get get = new Get(rowKey.getBytes());
-            if(!get.isCheckExistenceOnly()){
-                get.addColumn(Bytes.toBytes(family),Bytes.toBytes(col));
+            if (!get.isCheckExistenceOnly()) {
+                get.addColumn(Bytes.toBytes(family), Bytes.toBytes(col));
                 Result res = table.get(get);
                 byte[] resByte = res.getValue(Bytes.toBytes(family), Bytes.toBytes(col));
                 return result = Bytes.toString(resByte);
-            }else{
+            } else {
                 return result = "查询结果不存在";
             }
         } catch (IOException e) {
@@ -165,7 +165,7 @@ public class Hbase {
     }
 
     //查询指定表名中所有的数据
-    public static List<User> getAllData(String tableName){
+    public static List<User> getAllData(String tableName) {
 
         Table table = null;
         List<User> list = new ArrayList<User>();
@@ -173,29 +173,29 @@ public class Hbase {
             table = initHbase().getTable(TableName.valueOf(tableName));
             ResultScanner results = table.getScanner(new Scan());
             User user = null;
-            for (Result result : results){
+            for (Result result : results) {
                 String id = new String(result.getRow());
                 System.out.println("用户名:" + new String(result.getRow()));
                 user = new User();
-                for(Cell cell : result.rawCells()){
+                for (Cell cell : result.rawCells()) {
                     String row = Bytes.toString(cell.getRowArray(), cell.getRowOffset(), cell.getRowLength());
                     //String family =  Bytes.toString(cell.getFamilyArray(),cell.getFamilyOffset(),cell.getFamilyLength());
-                    String colName = Bytes.toString(cell.getQualifierArray(),cell.getQualifierOffset(),cell.getQualifierLength());
+                    String colName = Bytes.toString(cell.getQualifierArray(), cell.getQualifierOffset(), cell.getQualifierLength());
                     String value = Bytes.toString(cell.getValueArray(), cell.getValueOffset(), cell.getValueLength());
                     user.setId(row);
-                    if(colName.equals("username")){
+                    if (colName.equals("username")) {
                         user.setUsername(value);
                     }
-                    if(colName.equals("age")){
+                    if (colName.equals("age")) {
                         user.setAge(value);
                     }
-                    if (colName.equals("gender")){
+                    if (colName.equals("gender")) {
                         user.setGender(value);
                     }
-                    if (colName.equals("phone")){
+                    if (colName.equals("phone")) {
                         user.setPhone(value);
                     }
-                    if (colName.equals("email")){
+                    if (colName.equals("email")) {
                         user.setEmail(value);
                     }
                 }
@@ -218,7 +218,7 @@ public class Hbase {
     }
 
     //删除表
-    public static void deleteTable(String tableName){
+    public static void deleteTable(String tableName) {
 
         try {
             TableName tablename = TableName.valueOf(tableName);

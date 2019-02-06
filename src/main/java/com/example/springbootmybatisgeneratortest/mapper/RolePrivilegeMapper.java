@@ -2,15 +2,16 @@ package com.example.springbootmybatisgeneratortest.mapper;
 
 import com.example.springbootmybatisgeneratortest.pojo.RolePrivilege;
 import com.example.springbootmybatisgeneratortest.pojo.RolePrivilegeExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface RolePrivilegeMapper {
     int countByExample(RolePrivilegeExample example);
 
     int deleteByExample(RolePrivilegeExample example);
 
-    int deleteByPrimaryKey(Integer rolePrivilegeId);
+    int deleteByPrimaryKey(String rolePrivilegeId);
 
     int insert(RolePrivilege record);
 
@@ -18,7 +19,7 @@ public interface RolePrivilegeMapper {
 
     List<RolePrivilege> selectByExample(RolePrivilegeExample example);
 
-    RolePrivilege selectByPrimaryKey(Integer rolePrivilegeId);
+    RolePrivilege selectByPrimaryKey(String rolePrivilegeId);
 
     int updateByExampleSelective(@Param("record") RolePrivilege record, @Param("example") RolePrivilegeExample example);
 

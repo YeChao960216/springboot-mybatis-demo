@@ -1,11 +1,13 @@
 package com.example.springbootmybatisgeneratortest.pojo;
 
+import java.util.Date;
+
 public class Trans {
     private String transId;
 
-    private Integer growId;
+    private String growId;
 
-    private Integer manufactureId;
+    private String manufactureId;
 
     private String carNum;
 
@@ -27,6 +29,8 @@ public class Trans {
 
     private String flag;
 
+    private Date createTime;
+
     public String getTransId() {
         return transId;
     }
@@ -35,20 +39,20 @@ public class Trans {
         this.transId = transId == null ? null : transId.trim();
     }
 
-    public Integer getGrowId() {
+    public String getGrowId() {
         return growId;
     }
 
-    public void setGrowId(Integer growId) {
-        this.growId = growId;
+    public void setGrowId(String growId) {
+        this.growId = growId == null ? null : growId.trim();
     }
 
-    public Integer getManufactureId() {
+    public String getManufactureId() {
         return manufactureId;
     }
 
-    public void setManufactureId(Integer manufactureId) {
-        this.manufactureId = manufactureId;
+    public void setManufactureId(String manufactureId) {
+        this.manufactureId = manufactureId == null ? null : manufactureId.trim();
     }
 
     public String getCarNum() {
@@ -129,5 +133,13 @@ public class Trans {
 
     public void setFlag(String flag) {
         this.flag = flag == null ? null : flag.trim();
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 }

@@ -1,9 +1,11 @@
 package com.example.springbootmybatisgeneratortest.pojo;
 
-public class Chemicals {
-    private Integer chemicalsId;
+import java.util.Date;
 
-    private Integer growId;
+public class Chemicals {
+    private String chemicalsId;
+
+    private String growId;
 
     private String useDate;
 
@@ -13,20 +15,22 @@ public class Chemicals {
 
     private String flag;
 
-    public Integer getChemicalsId() {
+    private Date createTime;
+
+    public String getChemicalsId() {
         return chemicalsId;
     }
 
-    public void setChemicalsId(Integer chemicalsId) {
-        this.chemicalsId = chemicalsId;
+    public void setChemicalsId(String chemicalsId) {
+        this.chemicalsId = chemicalsId == null ? null : chemicalsId.trim();
     }
 
-    public Integer getGrowId() {
+    public String getGrowId() {
         return growId;
     }
 
-    public void setGrowId(Integer growId) {
-        this.growId = growId;
+    public void setGrowId(String growId) {
+        this.growId = growId == null ? null : growId.trim();
     }
 
     public String getUseDate() {
@@ -59,5 +63,13 @@ public class Chemicals {
 
     public void setFlag(String flag) {
         this.flag = flag == null ? null : flag.trim();
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 }

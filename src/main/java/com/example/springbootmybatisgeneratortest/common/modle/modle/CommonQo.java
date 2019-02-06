@@ -16,7 +16,7 @@ import java.util.Date;
  */
 public class CommonQo {
     //  当前去请求的页码
-    private  int pageNum = 1;
+    private int pageNum = 1;
     //  一页拥有的记录数
     private int pageSize = 10;
 

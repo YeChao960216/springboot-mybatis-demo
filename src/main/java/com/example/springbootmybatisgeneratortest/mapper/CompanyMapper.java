@@ -2,15 +2,16 @@ package com.example.springbootmybatisgeneratortest.mapper;
 
 import com.example.springbootmybatisgeneratortest.pojo.Company;
 import com.example.springbootmybatisgeneratortest.pojo.CompanyExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface CompanyMapper {
     int countByExample(CompanyExample example);
 
     int deleteByExample(CompanyExample example);
 
-    int deleteByPrimaryKey(Integer companyId);
+    int deleteByPrimaryKey(String companyId);
 
     int insert(Company record);
 
@@ -18,7 +19,7 @@ public interface CompanyMapper {
 
     List<Company> selectByExample(CompanyExample example);
 
-    Company selectByPrimaryKey(Integer companyId);
+    Company selectByPrimaryKey(String companyId);
 
     int updateByExampleSelective(@Param("record") Company record, @Param("example") CompanyExample example);
 

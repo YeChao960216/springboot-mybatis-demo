@@ -1,11 +1,13 @@
 package com.example.springbootmybatisgeneratortest.pojo;
 
+import java.util.Date;
+
 public class Manufacture {
-    private Integer manufactureId;
+    private String manufactureId;
 
-    private Integer companyId;
+    private String companyId;
 
-    private Integer growId;
+    private String growId;
 
     private String manufactureDate;
 
@@ -25,28 +27,30 @@ public class Manufacture {
 
     private String unit;
 
-    public Integer getManufactureId() {
+    private Date createTime;
+
+    public String getManufactureId() {
         return manufactureId;
     }
 
-    public void setManufactureId(Integer manufactureId) {
-        this.manufactureId = manufactureId;
+    public void setManufactureId(String manufactureId) {
+        this.manufactureId = manufactureId == null ? null : manufactureId.trim();
     }
 
-    public Integer getCompanyId() {
+    public String getCompanyId() {
         return companyId;
     }
 
-    public void setCompanyId(Integer companyId) {
-        this.companyId = companyId;
+    public void setCompanyId(String companyId) {
+        this.companyId = companyId == null ? null : companyId.trim();
     }
 
-    public Integer getGrowId() {
+    public String getGrowId() {
         return growId;
     }
 
-    public void setGrowId(Integer growId) {
-        this.growId = growId;
+    public void setGrowId(String growId) {
+        this.growId = growId == null ? null : growId.trim();
     }
 
     public String getManufactureDate() {
@@ -119,5 +123,13 @@ public class Manufacture {
 
     public void setUnit(String unit) {
         this.unit = unit == null ? null : unit.trim();
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 }

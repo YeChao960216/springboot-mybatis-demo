@@ -2,8 +2,9 @@ package com.example.springbootmybatisgeneratortest.mapper;
 
 import com.example.springbootmybatisgeneratortest.pojo.Trans;
 import com.example.springbootmybatisgeneratortest.pojo.TransExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface TransMapper {
     int countByExample(TransExample example);

@@ -1,33 +1,33 @@
 package com.example.springbootmybatisgeneratortest.pojo;
 
 public class UserRole {
-    private Integer userRoleId;
+    private String userRoleId;
 
-    private Integer roleId;
+    private String roleId;
 
-    private Integer userId;
+    private String userId;
 
-    public Integer getUserRoleId() {
+    public String getUserRoleId() {
         return userRoleId;
     }
 
-    public void setUserRoleId(Integer userRoleId) {
-        this.userRoleId = userRoleId;
+    public void setUserRoleId(String userRoleId) {
+        this.userRoleId = userRoleId == null ? null : userRoleId.trim();
     }
 
-    public Integer getRoleId() {
+    public String getRoleId() {
         return roleId;
     }
 
-    public void setRoleId(Integer roleId) {
-        this.roleId = roleId;
+    public void setRoleId(String roleId) {
+        this.roleId = roleId == null ? null : roleId.trim();
     }
 
-    public Integer getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setUserId(String userId) {
+        this.userId = userId == null ? null : userId.trim();
     }
 }

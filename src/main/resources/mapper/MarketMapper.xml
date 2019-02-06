@@ -1,266 +1,285 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.example.springbootmybatisgeneratortest.mapper.MarketMapper" >
-  <resultMap id="BaseResultMap" type="com.example.springbootmybatisgeneratortest.pojo.Market" >
-    <id column="Origin_id" property="originId" jdbcType="VARCHAR" />
-    <result column="market_name" property="marketName" jdbcType="VARCHAR" />
-    <result column="phone" property="phone" jdbcType="VARCHAR" />
-    <result column="license" property="license" jdbcType="VARCHAR" />
-    <result column="address" property="address" jdbcType="VARCHAR" />
-    <result column="scan_time" property="scanTime" jdbcType="VARCHAR" />
-    <result column="flag" property="flag" jdbcType="VARCHAR" />
-    <result column="trans_id" property="transId" jdbcType="VARCHAR" />
-    <result column="grow_id" property="growId" jdbcType="INTEGER" />
-  </resultMap>
-  <sql id="Example_Where_Clause" >
-    <where >
-      <foreach collection="oredCriteria" item="criteria" separator="or" >
-        <if test="criteria.valid" >
-          <trim prefix="(" suffix=")" prefixOverrides="and" >
-            <foreach collection="criteria.criteria" item="criterion" >
-              <choose >
-                <when test="criterion.noValue" >
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue" >
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue" >
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue" >
-                  and ${criterion.condition}
-                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
+<mapper namespace="com.example.springbootmybatisgeneratortest.mapper.MarketMapper">
+    <resultMap id="BaseResultMap" type="com.example.springbootmybatisgeneratortest.pojo.Market">
+        <id column="origin_id" property="originId" jdbcType="VARCHAR"/>
+        <result column="market_name" property="marketName" jdbcType="VARCHAR"/>
+        <result column="phone" property="phone" jdbcType="VARCHAR"/>
+        <result column="license" property="license" jdbcType="VARCHAR"/>
+        <result column="address" property="address" jdbcType="VARCHAR"/>
+        <result column="scan_time" property="scanTime" jdbcType="VARCHAR"/>
+        <result column="flag" property="flag" jdbcType="VARCHAR"/>
+        <result column="trans_id" property="transId" jdbcType="VARCHAR"/>
+        <result column="grow_id" property="growId" jdbcType="VARCHAR"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" suffix=")" prefixOverrides="and">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")"
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
             </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Update_By_Example_Where_Clause" >
-    <where >
-      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
-        <if test="criteria.valid" >
-          <trim prefix="(" suffix=")" prefixOverrides="and" >
-            <foreach collection="criteria.criteria" item="criterion" >
-              <choose >
-                <when test="criterion.noValue" >
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue" >
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue" >
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue" >
-                  and ${criterion.condition}
-                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
+        </where>
+    </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" suffix=")" prefixOverrides="and">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")"
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
             </foreach>
-          </trim>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+    origin_id, market_name, phone, license, address, scan_time, flag, trans_id, grow_id, 
+    create_time
+  </sql>
+    <select id="selectByExample" resultMap="BaseResultMap"
+            parameterType="com.example.springbootmybatisgeneratortest.pojo.MarketExample">
+        select
+        <if test="distinct">
+            distinct
         </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Base_Column_List" >
-    Origin_id, market_name, phone, license, address, scan_time, flag, trans_id, grow_id
-  </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.springbootmybatisgeneratortest.pojo.MarketExample" >
-    select
-    <if test="distinct" >
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    from market
-    <if test="_parameter != null" >
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null" >
-      order by ${orderByClause}
-    </if>
-  </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
-    select 
-    <include refid="Base_Column_List" />
-    from market
-    where Origin_id = #{originId,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+        <include refid="Base_Column_List"/>
+        from market
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from market
+        where origin_id = #{originId,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from market
-    where Origin_id = #{originId,jdbcType=VARCHAR}
+    where origin_id = #{originId,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="com.example.springbootmybatisgeneratortest.pojo.MarketExample" >
-    delete from market
-    <if test="_parameter != null" >
-      <include refid="Example_Where_Clause" />
-    </if>
-  </delete>
-  <insert id="insert" parameterType="com.example.springbootmybatisgeneratortest.pojo.Market" >
-    insert into market (Origin_id, market_name, phone, 
+    <delete id="deleteByExample" parameterType="com.example.springbootmybatisgeneratortest.pojo.MarketExample">
+        delete from market
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </delete>
+    <insert id="insert" parameterType="com.example.springbootmybatisgeneratortest.pojo.Market">
+    insert into market (origin_id, market_name, phone, 
       license, address, scan_time, 
-      flag, trans_id, grow_id
-      )
+      flag, trans_id, grow_id, 
+      create_time)
     values (#{originId,jdbcType=VARCHAR}, #{marketName,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
       #{license,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{scanTime,jdbcType=VARCHAR}, 
-      #{flag,jdbcType=VARCHAR}, #{transId,jdbcType=VARCHAR}, #{growId,jdbcType=INTEGER}
-      )
+      #{flag,jdbcType=VARCHAR}, #{transId,jdbcType=VARCHAR}, #{growId,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.example.springbootmybatisgeneratortest.pojo.Market" >
-    insert into market
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="originId != null" >
-        Origin_id,
-      </if>
-      <if test="marketName != null" >
-        market_name,
-      </if>
-      <if test="phone != null" >
-        phone,
-      </if>
-      <if test="license != null" >
-        license,
-      </if>
-      <if test="address != null" >
-        address,
-      </if>
-      <if test="scanTime != null" >
-        scan_time,
-      </if>
-      <if test="flag != null" >
-        flag,
-      </if>
-      <if test="transId != null" >
-        trans_id,
-      </if>
-      <if test="growId != null" >
-        grow_id,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="originId != null" >
-        #{originId,jdbcType=VARCHAR},
-      </if>
-      <if test="marketName != null" >
-        #{marketName,jdbcType=VARCHAR},
-      </if>
-      <if test="phone != null" >
-        #{phone,jdbcType=VARCHAR},
-      </if>
-      <if test="license != null" >
-        #{license,jdbcType=VARCHAR},
-      </if>
-      <if test="address != null" >
-        #{address,jdbcType=VARCHAR},
-      </if>
-      <if test="scanTime != null" >
-        #{scanTime,jdbcType=VARCHAR},
-      </if>
-      <if test="flag != null" >
-        #{flag,jdbcType=VARCHAR},
-      </if>
-      <if test="transId != null" >
-        #{transId,jdbcType=VARCHAR},
-      </if>
-      <if test="growId != null" >
-        #{growId,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <select id="countByExample" parameterType="com.example.springbootmybatisgeneratortest.pojo.MarketExample" resultType="java.lang.Integer" >
-    select count(*) from market
-    <if test="_parameter != null" >
-      <include refid="Example_Where_Clause" />
-    </if>
-  </select>
-  <update id="updateByExampleSelective" parameterType="map" >
-    update market
-    <set >
-      <if test="record.originId != null" >
-        Origin_id = #{record.originId,jdbcType=VARCHAR},
-      </if>
-      <if test="record.marketName != null" >
+    <insert id="insertSelective" parameterType="com.example.springbootmybatisgeneratortest.pojo.Market">
+        insert into market
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="originId != null">
+                origin_id,
+            </if>
+            <if test="marketName != null">
+                market_name,
+            </if>
+            <if test="phone != null">
+                phone,
+            </if>
+            <if test="license != null">
+                license,
+            </if>
+            <if test="address != null">
+                address,
+            </if>
+            <if test="scanTime != null">
+                scan_time,
+            </if>
+            <if test="flag != null">
+                flag,
+            </if>
+            <if test="transId != null">
+                trans_id,
+            </if>
+            <if test="growId != null">
+                grow_id,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="originId != null">
+                #{originId,jdbcType=VARCHAR},
+            </if>
+            <if test="marketName != null">
+                #{marketName,jdbcType=VARCHAR},
+            </if>
+            <if test="phone != null">
+                #{phone,jdbcType=VARCHAR},
+            </if>
+            <if test="license != null">
+                #{license,jdbcType=VARCHAR},
+            </if>
+            <if test="address != null">
+                #{address,jdbcType=VARCHAR},
+            </if>
+            <if test="scanTime != null">
+                #{scanTime,jdbcType=VARCHAR},
+            </if>
+            <if test="flag != null">
+                #{flag,jdbcType=VARCHAR},
+            </if>
+            <if test="transId != null">
+                #{transId,jdbcType=VARCHAR},
+            </if>
+            <if test="growId != null">
+                #{growId,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <select id="countByExample" parameterType="com.example.springbootmybatisgeneratortest.pojo.MarketExample"
+            resultType="java.lang.Integer">
+        select count(*) from market
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
+        update market
+        <set>
+            <if test="record.originId != null">
+                origin_id = #{record.originId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.marketName != null">
+                market_name = #{record.marketName,jdbcType=VARCHAR},
+            </if>
+            <if test="record.phone != null">
+                phone = #{record.phone,jdbcType=VARCHAR},
+            </if>
+            <if test="record.license != null">
+                license = #{record.license,jdbcType=VARCHAR},
+            </if>
+            <if test="record.address != null">
+                address = #{record.address,jdbcType=VARCHAR},
+            </if>
+            <if test="record.scanTime != null">
+                scan_time = #{record.scanTime,jdbcType=VARCHAR},
+            </if>
+            <if test="record.flag != null">
+                flag = #{record.flag,jdbcType=VARCHAR},
+            </if>
+            <if test="record.transId != null">
+                trans_id = #{record.transId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.growId != null">
+                grow_id = #{record.growId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.createTime != null">
+                create_time = #{record.createTime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByExample" parameterType="map">
+        update market
+        set origin_id = #{record.originId,jdbcType=VARCHAR},
         market_name = #{record.marketName,jdbcType=VARCHAR},
-      </if>
-      <if test="record.phone != null" >
         phone = #{record.phone,jdbcType=VARCHAR},
-      </if>
-      <if test="record.license != null" >
         license = #{record.license,jdbcType=VARCHAR},
-      </if>
-      <if test="record.address != null" >
         address = #{record.address,jdbcType=VARCHAR},
-      </if>
-      <if test="record.scanTime != null" >
         scan_time = #{record.scanTime,jdbcType=VARCHAR},
-      </if>
-      <if test="record.flag != null" >
         flag = #{record.flag,jdbcType=VARCHAR},
-      </if>
-      <if test="record.transId != null" >
         trans_id = #{record.transId,jdbcType=VARCHAR},
-      </if>
-      <if test="record.growId != null" >
-        grow_id = #{record.growId,jdbcType=INTEGER},
-      </if>
-    </set>
-    <if test="_parameter != null" >
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByExample" parameterType="map" >
-    update market
-    set Origin_id = #{record.originId,jdbcType=VARCHAR},
-      market_name = #{record.marketName,jdbcType=VARCHAR},
-      phone = #{record.phone,jdbcType=VARCHAR},
-      license = #{record.license,jdbcType=VARCHAR},
-      address = #{record.address,jdbcType=VARCHAR},
-      scan_time = #{record.scanTime,jdbcType=VARCHAR},
-      flag = #{record.flag,jdbcType=VARCHAR},
-      trans_id = #{record.transId,jdbcType=VARCHAR},
-      grow_id = #{record.growId,jdbcType=INTEGER}
-    <if test="_parameter != null" >
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.springbootmybatisgeneratortest.pojo.Market" >
-    update market
-    <set >
-      <if test="marketName != null" >
-        market_name = #{marketName,jdbcType=VARCHAR},
-      </if>
-      <if test="phone != null" >
-        phone = #{phone,jdbcType=VARCHAR},
-      </if>
-      <if test="license != null" >
-        license = #{license,jdbcType=VARCHAR},
-      </if>
-      <if test="address != null" >
-        address = #{address,jdbcType=VARCHAR},
-      </if>
-      <if test="scanTime != null" >
-        scan_time = #{scanTime,jdbcType=VARCHAR},
-      </if>
-      <if test="flag != null" >
-        flag = #{flag,jdbcType=VARCHAR},
-      </if>
-      <if test="transId != null" >
-        trans_id = #{transId,jdbcType=VARCHAR},
-      </if>
-      <if test="growId != null" >
-        grow_id = #{growId,jdbcType=INTEGER},
-      </if>
-    </set>
-    where Origin_id = #{originId,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.springbootmybatisgeneratortest.pojo.Market" >
+        grow_id = #{record.growId,jdbcType=VARCHAR},
+        create_time = #{record.createTime,jdbcType=TIMESTAMP}
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByPrimaryKeySelective" parameterType="com.example.springbootmybatisgeneratortest.pojo.Market">
+        update market
+        <set>
+            <if test="marketName != null">
+                market_name = #{marketName,jdbcType=VARCHAR},
+            </if>
+            <if test="phone != null">
+                phone = #{phone,jdbcType=VARCHAR},
+            </if>
+            <if test="license != null">
+                license = #{license,jdbcType=VARCHAR},
+            </if>
+            <if test="address != null">
+                address = #{address,jdbcType=VARCHAR},
+            </if>
+            <if test="scanTime != null">
+                scan_time = #{scanTime,jdbcType=VARCHAR},
+            </if>
+            <if test="flag != null">
+                flag = #{flag,jdbcType=VARCHAR},
+            </if>
+            <if test="transId != null">
+                trans_id = #{transId,jdbcType=VARCHAR},
+            </if>
+            <if test="growId != null">
+                grow_id = #{growId,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where origin_id = #{originId,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.example.springbootmybatisgeneratortest.pojo.Market">
     update market
     set market_name = #{marketName,jdbcType=VARCHAR},
       phone = #{phone,jdbcType=VARCHAR},
@@ -269,7 +288,8 @@
       scan_time = #{scanTime,jdbcType=VARCHAR},
       flag = #{flag,jdbcType=VARCHAR},
       trans_id = #{transId,jdbcType=VARCHAR},
-      grow_id = #{growId,jdbcType=INTEGER}
-    where Origin_id = #{originId,jdbcType=VARCHAR}
+      grow_id = #{growId,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where origin_id = #{originId,jdbcType=VARCHAR}
   </update>
 </mapper>

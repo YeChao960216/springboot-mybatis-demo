@@ -2,37 +2,40 @@ package com.example.springbootmybatisgeneratortest.service.serviceImpl;
 
 import com.example.springbootmybatisgeneratortest.mapper.UserMapper;
 import com.example.springbootmybatisgeneratortest.pojo.User;
+import com.example.springbootmybatisgeneratortest.pojo.UserExample;
 import com.example.springbootmybatisgeneratortest.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-/**
- * @author ChaceYip
- * @create2018 -02 -02 -12:25
- */
+import java.util.List;
+
 @Service
 public class UserServiceImpl implements UserService {
-
     @Autowired
-    UserMapper userMapper;
+    private UserMapper userMapper;
 
     @Override
-    public void add(User user) {
-        userMapper.insert(user);
+    public int insert(User entity) throws Exception {
+        return userMapper.insert(entity);
     }
 
     @Override
-    public void delete(int id) {
-
+    public int update(User entity) throws Exception {
+        return userMapper.updateByPrimaryKeySelective(entity);
     }
 
     @Override
-    public void update(User user) {
-
+    public int delete(User entity) throws Exception {
+        return userMapper.deleteByPrimaryKey(entity.getUserId());
     }
 
     @Override
-    public User get(int id) {
-        return userMapper.selectByPrimaryKey(id);
+    public List<User> select(User entity) throws Exception {
+        UserExample userExample = new UserExample();
+        UserExample.Criteria criteria = userExample.createCriteria();
+        if (entity.getUserId() != null) {
+            criteria.andUserIdEqualTo(entity.getUserId());
+        }
+        return userMapper.selectByExample(userExample);
     }
 }

@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @MapperScan("com.example.springbootmybatisgeneratortest.mapper")
 public class SpringbootMybatisGeneratorTestApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SpringbootMybatisGeneratorTestApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SpringbootMybatisGeneratorTestApplication.class, args);
+    }
 }

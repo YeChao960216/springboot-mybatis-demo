@@ -2,15 +2,16 @@ package com.example.springbootmybatisgeneratortest.mapper;
 
 import com.example.springbootmybatisgeneratortest.pojo.Manufacture;
 import com.example.springbootmybatisgeneratortest.pojo.ManufactureExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface ManufactureMapper {
     int countByExample(ManufactureExample example);
 
     int deleteByExample(ManufactureExample example);
 
-    int deleteByPrimaryKey(Integer manufactureId);
+    int deleteByPrimaryKey(String manufactureId);
 
     int insert(Manufacture record);
 
@@ -18,7 +19,7 @@ public interface ManufactureMapper {
 
     List<Manufacture> selectByExample(ManufactureExample example);
 
-    Manufacture selectByPrimaryKey(Integer manufactureId);
+    Manufacture selectByPrimaryKey(String manufactureId);
 
     int updateByExampleSelective(@Param("record") Manufacture record, @Param("example") ManufactureExample example);
 

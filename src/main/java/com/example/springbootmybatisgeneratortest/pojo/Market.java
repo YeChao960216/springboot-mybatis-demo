@@ -1,5 +1,7 @@
 package com.example.springbootmybatisgeneratortest.pojo;
 
+import java.util.Date;
+
 public class Market {
     private String originId;
 
@@ -17,7 +19,9 @@ public class Market {
 
     private String transId;
 
-    private Integer growId;
+    private String growId;
+
+    private Date createTime;
 
     public String getOriginId() {
         return originId;
@@ -83,11 +87,19 @@ public class Market {
         this.transId = transId == null ? null : transId.trim();
     }
 
-    public Integer getGrowId() {
+    public String getGrowId() {
         return growId;
     }
 
-    public void setGrowId(Integer growId) {
-        this.growId = growId;
+    public void setGrowId(String growId) {
+        this.growId = growId == null ? null : growId.trim();
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 }

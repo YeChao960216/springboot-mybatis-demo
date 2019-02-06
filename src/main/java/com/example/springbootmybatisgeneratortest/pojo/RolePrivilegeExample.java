@@ -14,20 +14,20 @@ public class RolePrivilegeExample {
         oredCriteria = new ArrayList<Criteria>();
     }
 
-    public void setOrderByClause(String orderByClause) {
-        this.orderByClause = orderByClause;
-    }
-
     public String getOrderByClause() {
         return orderByClause;
     }
 
-    public void setDistinct(boolean distinct) {
-        this.distinct = distinct;
+    public void setOrderByClause(String orderByClause) {
+        this.orderByClause = orderByClause;
     }
 
     public boolean isDistinct() {
         return distinct;
+    }
+
+    public void setDistinct(boolean distinct) {
+        this.distinct = distinct;
     }
 
     public List<Criteria> getOredCriteria() {
@@ -114,52 +114,62 @@ public class RolePrivilegeExample {
             return (Criteria) this;
         }
 
-        public Criteria andRolePrivilegeIdEqualTo(Integer value) {
+        public Criteria andRolePrivilegeIdEqualTo(String value) {
             addCriterion("role_privilege_id =", value, "rolePrivilegeId");
             return (Criteria) this;
         }
 
-        public Criteria andRolePrivilegeIdNotEqualTo(Integer value) {
+        public Criteria andRolePrivilegeIdNotEqualTo(String value) {
             addCriterion("role_privilege_id <>", value, "rolePrivilegeId");
             return (Criteria) this;
         }
 
-        public Criteria andRolePrivilegeIdGreaterThan(Integer value) {
+        public Criteria andRolePrivilegeIdGreaterThan(String value) {
             addCriterion("role_privilege_id >", value, "rolePrivilegeId");
             return (Criteria) this;
         }
 
-        public Criteria andRolePrivilegeIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andRolePrivilegeIdGreaterThanOrEqualTo(String value) {
             addCriterion("role_privilege_id >=", value, "rolePrivilegeId");
             return (Criteria) this;
         }
 
-        public Criteria andRolePrivilegeIdLessThan(Integer value) {
+        public Criteria andRolePrivilegeIdLessThan(String value) {
             addCriterion("role_privilege_id <", value, "rolePrivilegeId");
             return (Criteria) this;
         }
 
-        public Criteria andRolePrivilegeIdLessThanOrEqualTo(Integer value) {
+        public Criteria andRolePrivilegeIdLessThanOrEqualTo(String value) {
             addCriterion("role_privilege_id <=", value, "rolePrivilegeId");
             return (Criteria) this;
         }
 
-        public Criteria andRolePrivilegeIdIn(List<Integer> values) {
+        public Criteria andRolePrivilegeIdLike(String value) {
+            addCriterion("role_privilege_id like", value, "rolePrivilegeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andRolePrivilegeIdNotLike(String value) {
+            addCriterion("role_privilege_id not like", value, "rolePrivilegeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andRolePrivilegeIdIn(List<String> values) {
             addCriterion("role_privilege_id in", values, "rolePrivilegeId");
             return (Criteria) this;
         }
 
-        public Criteria andRolePrivilegeIdNotIn(List<Integer> values) {
+        public Criteria andRolePrivilegeIdNotIn(List<String> values) {
             addCriterion("role_privilege_id not in", values, "rolePrivilegeId");
             return (Criteria) this;
         }
 
-        public Criteria andRolePrivilegeIdBetween(Integer value1, Integer value2) {
+        public Criteria andRolePrivilegeIdBetween(String value1, String value2) {
             addCriterion("role_privilege_id between", value1, value2, "rolePrivilegeId");
             return (Criteria) this;
         }
 
-        public Criteria andRolePrivilegeIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andRolePrivilegeIdNotBetween(String value1, String value2) {
             addCriterion("role_privilege_id not between", value1, value2, "rolePrivilegeId");
             return (Criteria) this;
         }
@@ -174,52 +184,62 @@ public class RolePrivilegeExample {
             return (Criteria) this;
         }
 
-        public Criteria andRoleIdEqualTo(Integer value) {
+        public Criteria andRoleIdEqualTo(String value) {
             addCriterion("role_id =", value, "roleId");
             return (Criteria) this;
         }
 
-        public Criteria andRoleIdNotEqualTo(Integer value) {
+        public Criteria andRoleIdNotEqualTo(String value) {
             addCriterion("role_id <>", value, "roleId");
             return (Criteria) this;
         }
 
-        public Criteria andRoleIdGreaterThan(Integer value) {
+        public Criteria andRoleIdGreaterThan(String value) {
             addCriterion("role_id >", value, "roleId");
             return (Criteria) this;
         }
 
-        public Criteria andRoleIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andRoleIdGreaterThanOrEqualTo(String value) {
             addCriterion("role_id >=", value, "roleId");
             return (Criteria) this;
         }
 
-        public Criteria andRoleIdLessThan(Integer value) {
+        public Criteria andRoleIdLessThan(String value) {
             addCriterion("role_id <", value, "roleId");
             return (Criteria) this;
         }
 
-        public Criteria andRoleIdLessThanOrEqualTo(Integer value) {
+        public Criteria andRoleIdLessThanOrEqualTo(String value) {
             addCriterion("role_id <=", value, "roleId");
             return (Criteria) this;
         }
 
-        public Criteria andRoleIdIn(List<Integer> values) {
+        public Criteria andRoleIdLike(String value) {
+            addCriterion("role_id like", value, "roleId");
+            return (Criteria) this;
+        }
+
+        public Criteria andRoleIdNotLike(String value) {
+            addCriterion("role_id not like", value, "roleId");
+            return (Criteria) this;
+        }
+
+        public Criteria andRoleIdIn(List<String> values) {
             addCriterion("role_id in", values, "roleId");
             return (Criteria) this;
         }
 
-        public Criteria andRoleIdNotIn(List<Integer> values) {
+        public Criteria andRoleIdNotIn(List<String> values) {
             addCriterion("role_id not in", values, "roleId");
             return (Criteria) this;
         }
 
-        public Criteria andRoleIdBetween(Integer value1, Integer value2) {
+        public Criteria andRoleIdBetween(String value1, String value2) {
             addCriterion("role_id between", value1, value2, "roleId");
             return (Criteria) this;
         }
 
-        public Criteria andRoleIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andRoleIdNotBetween(String value1, String value2) {
             addCriterion("role_id not between", value1, value2, "roleId");
             return (Criteria) this;
         }
@@ -234,52 +254,62 @@ public class RolePrivilegeExample {
             return (Criteria) this;
         }
 
-        public Criteria andPrivilegeIdEqualTo(Integer value) {
+        public Criteria andPrivilegeIdEqualTo(String value) {
             addCriterion("privilege_id =", value, "privilegeId");
             return (Criteria) this;
         }
 
-        public Criteria andPrivilegeIdNotEqualTo(Integer value) {
+        public Criteria andPrivilegeIdNotEqualTo(String value) {
             addCriterion("privilege_id <>", value, "privilegeId");
             return (Criteria) this;
         }
 
-        public Criteria andPrivilegeIdGreaterThan(Integer value) {
+        public Criteria andPrivilegeIdGreaterThan(String value) {
             addCriterion("privilege_id >", value, "privilegeId");
             return (Criteria) this;
         }
 
-        public Criteria andPrivilegeIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andPrivilegeIdGreaterThanOrEqualTo(String value) {
             addCriterion("privilege_id >=", value, "privilegeId");
             return (Criteria) this;
         }
 
-        public Criteria andPrivilegeIdLessThan(Integer value) {
+        public Criteria andPrivilegeIdLessThan(String value) {
             addCriterion("privilege_id <", value, "privilegeId");
             return (Criteria) this;
         }
 
-        public Criteria andPrivilegeIdLessThanOrEqualTo(Integer value) {
+        public Criteria andPrivilegeIdLessThanOrEqualTo(String value) {
             addCriterion("privilege_id <=", value, "privilegeId");
             return (Criteria) this;
         }
 
-        public Criteria andPrivilegeIdIn(List<Integer> values) {
+        public Criteria andPrivilegeIdLike(String value) {
+            addCriterion("privilege_id like", value, "privilegeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPrivilegeIdNotLike(String value) {
+            addCriterion("privilege_id not like", value, "privilegeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPrivilegeIdIn(List<String> values) {
             addCriterion("privilege_id in", values, "privilegeId");
             return (Criteria) this;
         }
 
-        public Criteria andPrivilegeIdNotIn(List<Integer> values) {
+        public Criteria andPrivilegeIdNotIn(List<String> values) {
             addCriterion("privilege_id not in", values, "privilegeId");
             return (Criteria) this;
         }
 
-        public Criteria andPrivilegeIdBetween(Integer value1, Integer value2) {
+        public Criteria andPrivilegeIdBetween(String value1, String value2) {
             addCriterion("privilege_id between", value1, value2, "privilegeId");
             return (Criteria) this;
         }
 
-        public Criteria andPrivilegeIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andPrivilegeIdNotBetween(String value1, String value2) {
             addCriterion("privilege_id not between", value1, value2, "privilegeId");
             return (Criteria) this;
         }
@@ -308,38 +338,6 @@ public class RolePrivilegeExample {
         private boolean listValue;
 
         private String typeHandler;
-
-        public String getCondition() {
-            return condition;
-        }
-
-        public Object getValue() {
-            return value;
-        }
-
-        public Object getSecondValue() {
-            return secondValue;
-        }
-
-        public boolean isNoValue() {
-            return noValue;
-        }
-
-        public boolean isSingleValue() {
-            return singleValue;
-        }
-
-        public boolean isBetweenValue() {
-            return betweenValue;
-        }
-
-        public boolean isListValue() {
-            return listValue;
-        }
-
-        public String getTypeHandler() {
-            return typeHandler;
-        }
 
         protected Criterion(String condition) {
             super();
@@ -375,6 +373,38 @@ public class RolePrivilegeExample {
 
         protected Criterion(String condition, Object value, Object secondValue) {
             this(condition, value, secondValue, null);
+        }
+
+        public String getCondition() {
+            return condition;
+        }
+
+        public Object getValue() {
+            return value;
+        }
+
+        public Object getSecondValue() {
+            return secondValue;
+        }
+
+        public boolean isNoValue() {
+            return noValue;
+        }
+
+        public boolean isSingleValue() {
+            return singleValue;
+        }
+
+        public boolean isBetweenValue() {
+            return betweenValue;
+        }
+
+        public boolean isListValue() {
+            return listValue;
+        }
+
+        public String getTypeHandler() {
+            return typeHandler;
         }
     }
 }

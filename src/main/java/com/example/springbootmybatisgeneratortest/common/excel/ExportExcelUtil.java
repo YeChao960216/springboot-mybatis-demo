@@ -12,7 +12,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 
-
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -22,9 +21,10 @@ import java.lang.reflect.Method;
 import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
-;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+;
 
 /**
  * @author : 钱伟健 gonefuture@qq.com
@@ -36,71 +36,72 @@ public final class ExportExcelUtil<T> {
     private Logger logger = LoggerFactory.getLogger(ExportExcelUtil.class);
 
     /**
-     *      生成XLS格式的excel对象
-     * @param title     文件名字
-     * @param headers   表格属性列名数组
+     * 生成XLS格式的excel对象
+     *
+     * @param title   文件名字
+     * @param headers 表格属性列名数组
      * @param dataSet 数据集
-     * @return  EXCEL
+     * @return EXCEL
      */
-    public  Workbook exportXLS(String title,String[] headers, Collection<T> dataSet) {
+    public Workbook exportXLS(String title, String[] headers, Collection<T> dataSet) {
         Workbook workbook = new HSSFWorkbook();
-        return exportExcel(workbook,title,headers,dataSet);
+        return exportExcel(workbook, title, headers, dataSet);
     }
 
     /**
-     *  生成XLS格式的excel对象
-     * @param title 文件名字
-     * @param headers   表格属性列名数组
-     * @param dataSet   数据集
-     * @return  EXCEl
+     * 生成XLS格式的excel对象
+     *
+     * @param title   文件名字
+     * @param headers 表格属性列名数组
+     * @param dataSet 数据集
+     * @return EXCEl
      */
-    public  Workbook exportXLSX(String title,String[] headers, Collection<T> dataSet) {
+    public Workbook exportXLSX(String title, String[] headers, Collection<T> dataSet) {
         //  声明一个工作簿和表格，并设置标题
         Workbook workbook = new HSSFWorkbook();
-        return exportExcel(workbook,title,headers,dataSet);
+        return exportExcel(workbook, title, headers, dataSet);
     }
 
     /**
-     *  生成XLS格式的excel文件字节流
-     * @param title 文件名字
-     * @param headers   表格属性列名数组
-     * @param dataSet   数据集
-     * @return  字节数组流
+     * 生成XLS格式的excel文件字节流
+     *
+     * @param title   文件名字
+     * @param headers 表格属性列名数组
+     * @param dataSet 数据集
+     * @return 字节数组流
      */
-    public ResponseEntity<byte[]> exportXLSOutput(String title, String[] headers, Collection<T> dataSet){
-        Workbook wb = exportXLS(title,headers,dataSet);
+    public ResponseEntity<byte[]> exportXLSOutput(String title, String[] headers, Collection<T> dataSet) {
+        Workbook wb = exportXLS(title, headers, dataSet);
         title = title + ".xls";
-        return exportExcelOutput(wb,title);
+        return exportExcelOutput(wb, title);
     }
 
     /**
-     *  生成XLSX格式的excel文件字节流
-     * @param title 文件名字
-     * @param headers   表格属性列名数组
-     * @param dataSet   数据集
-     * @return  字节数组流
+     * 生成XLSX格式的excel文件字节流
+     *
+     * @param title   文件名字
+     * @param headers 表格属性列名数组
+     * @param dataSet 数据集
+     * @return 字节数组流
      */
-    public ResponseEntity<byte[]> exportXLSXOutput(String title, String[] headers, Collection<T> dataSet){
-        Workbook wb = exportXLSX(title,headers,dataSet);
+    public ResponseEntity<byte[]> exportXLSXOutput(String title, String[] headers, Collection<T> dataSet) {
+        Workbook wb = exportXLSX(title, headers, dataSet);
         title = title + ".xlsx";
-        return exportExcelOutput(wb,title);
+        return exportExcelOutput(wb, title);
     }
-
 
 
     //  通过实体类生成xls格式的workbook对象,
+
     /**
      * 这是一个通用的方法，利用了JAVA的反射机制，可以将放置在JAVA集合中并且符号一定条件的数据返回xls格式的EXCEL对象
      *
-     * @param title
-     *            表格标题名
-     * @param headers
-     *            表格属性列名数组
-     * @param dataSet
-     *            需要显示的数据集合,集合中一定要放置符合javabean风格的类的对象。此方法支持的
-     *            javabean属性的数据类型有基本数据类型及String,Date,byte[](图片数据)
+     * @param title   表格标题名
+     * @param headers 表格属性列名数组
+     * @param dataSet 需要显示的数据集合,集合中一定要放置符合javabean风格的类的对象。此方法支持的
+     *                javabean属性的数据类型有基本数据类型及String,Date,byte[](图片数据)
      */
-     Workbook exportExcel(Workbook workbook,String title,String[] headers, Collection<T> dataSet) {
+    Workbook exportExcel(Workbook workbook, String title, String[] headers, Collection<T> dataSet) {
 
         Sheet sheet = workbook.createSheet(title);
         // 设置表格默认列宽度为15个字节
@@ -147,7 +148,7 @@ public final class ExportExcelUtil<T> {
             cell.setCellValue(text);
         }
         int index = 0;
-        for (T entity: dataSet){
+        for (T entity : dataSet) {
             index++;
             row = sheet.createRow(index);
 
@@ -163,12 +164,12 @@ public final class ExportExcelUtil<T> {
                     continue;
                 //  拼接出getXxx（）的名字
                 String getMethodName = "get"
-                        +fieldName.substring(0,1).toUpperCase()
-                        +fieldName.substring(1);
+                        + fieldName.substring(0, 1).toUpperCase()
+                        + fieldName.substring(1);
                 try {
                     Class clazz = entity.getClass();
-                    Method getMethod = clazz.getMethod(getMethodName,new Class[] {});
-                    Object value = getMethod.invoke(entity,new Object[] {});
+                    Method getMethod = clazz.getMethod(getMethodName, new Class[]{});
+                    Object value = getMethod.invoke(entity, new Object[]{});
 
                     //  判断值的类型后进行强制类型转换
                     String textValue = null;
@@ -197,7 +198,7 @@ public final class ExportExcelUtil<T> {
                         textValue = sdf.format(date);
                     } else {
                         //  其他数据类型当作字符串简单处理
-                        if (value == null){     //  处理空的数据
+                        if (value == null) {     //  处理空的数据
                             textValue = " ";
                         } else {
                             textValue = value.toString();
@@ -235,13 +236,13 @@ public final class ExportExcelUtil<T> {
     }
 
 
-
     /**
-     *     生成XLSX格式EXCEL的字节数据流
+     * 生成XLSX格式EXCEL的字节数据流
+     *
      * @param title 表格标题
      * @return XLSX格式的EXCEL对象
      */
-    public ResponseEntity<byte[]> exportExcelOutput(Workbook wb,String title){
+    public ResponseEntity<byte[]> exportExcelOutput(Workbook wb, String title) {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         //  设置请求头
         HttpHeaders httpHeaders = new HttpHeaders();
@@ -259,7 +260,7 @@ public final class ExportExcelUtil<T> {
         }
         httpHeaders.setContentDispositionFormData("attachment", fileName);
         httpHeaders.setContentType(MediaType.APPLICATION_OCTET_STREAM);
-        ResponseEntity<byte[]> filebyte = new ResponseEntity<byte[]>(out.toByteArray(),httpHeaders, HttpStatus.CREATED);
+        ResponseEntity<byte[]> filebyte = new ResponseEntity<byte[]>(out.toByteArray(), httpHeaders, HttpStatus.CREATED);
         //  关闭流
         try {
             out.close();

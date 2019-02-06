@@ -2,15 +2,16 @@ package com.example.springbootmybatisgeneratortest.mapper;
 
 import com.example.springbootmybatisgeneratortest.pojo.Chemicals;
 import com.example.springbootmybatisgeneratortest.pojo.ChemicalsExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface ChemicalsMapper {
     int countByExample(ChemicalsExample example);
 
     int deleteByExample(ChemicalsExample example);
 
-    int deleteByPrimaryKey(Integer chemicalsId);
+    int deleteByPrimaryKey(String chemicalsId);
 
     int insert(Chemicals record);
 
@@ -18,7 +19,7 @@ public interface ChemicalsMapper {
 
     List<Chemicals> selectByExample(ChemicalsExample example);
 
-    Chemicals selectByPrimaryKey(Integer chemicalsId);
+    Chemicals selectByPrimaryKey(String chemicalsId);
 
     int updateByExampleSelective(@Param("record") Chemicals record, @Param("example") ChemicalsExample example);
 

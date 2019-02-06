@@ -1,6 +1,7 @@
 package com.example.springbootmybatisgeneratortest.pojo;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class ChemicalsExample {
@@ -14,20 +15,20 @@ public class ChemicalsExample {
         oredCriteria = new ArrayList<Criteria>();
     }
 
-    public void setOrderByClause(String orderByClause) {
-        this.orderByClause = orderByClause;
-    }
-
     public String getOrderByClause() {
         return orderByClause;
     }
 
-    public void setDistinct(boolean distinct) {
-        this.distinct = distinct;
+    public void setOrderByClause(String orderByClause) {
+        this.orderByClause = orderByClause;
     }
 
     public boolean isDistinct() {
         return distinct;
+    }
+
+    public void setDistinct(boolean distinct) {
+        this.distinct = distinct;
     }
 
     public List<Criteria> getOredCriteria() {
@@ -114,52 +115,62 @@ public class ChemicalsExample {
             return (Criteria) this;
         }
 
-        public Criteria andChemicalsIdEqualTo(Integer value) {
+        public Criteria andChemicalsIdEqualTo(String value) {
             addCriterion("chemicals_id =", value, "chemicalsId");
             return (Criteria) this;
         }
 
-        public Criteria andChemicalsIdNotEqualTo(Integer value) {
+        public Criteria andChemicalsIdNotEqualTo(String value) {
             addCriterion("chemicals_id <>", value, "chemicalsId");
             return (Criteria) this;
         }
 
-        public Criteria andChemicalsIdGreaterThan(Integer value) {
+        public Criteria andChemicalsIdGreaterThan(String value) {
             addCriterion("chemicals_id >", value, "chemicalsId");
             return (Criteria) this;
         }
 
-        public Criteria andChemicalsIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andChemicalsIdGreaterThanOrEqualTo(String value) {
             addCriterion("chemicals_id >=", value, "chemicalsId");
             return (Criteria) this;
         }
 
-        public Criteria andChemicalsIdLessThan(Integer value) {
+        public Criteria andChemicalsIdLessThan(String value) {
             addCriterion("chemicals_id <", value, "chemicalsId");
             return (Criteria) this;
         }
 
-        public Criteria andChemicalsIdLessThanOrEqualTo(Integer value) {
+        public Criteria andChemicalsIdLessThanOrEqualTo(String value) {
             addCriterion("chemicals_id <=", value, "chemicalsId");
             return (Criteria) this;
         }
 
-        public Criteria andChemicalsIdIn(List<Integer> values) {
+        public Criteria andChemicalsIdLike(String value) {
+            addCriterion("chemicals_id like", value, "chemicalsId");
+            return (Criteria) this;
+        }
+
+        public Criteria andChemicalsIdNotLike(String value) {
+            addCriterion("chemicals_id not like", value, "chemicalsId");
+            return (Criteria) this;
+        }
+
+        public Criteria andChemicalsIdIn(List<String> values) {
             addCriterion("chemicals_id in", values, "chemicalsId");
             return (Criteria) this;
         }
 
-        public Criteria andChemicalsIdNotIn(List<Integer> values) {
+        public Criteria andChemicalsIdNotIn(List<String> values) {
             addCriterion("chemicals_id not in", values, "chemicalsId");
             return (Criteria) this;
         }
 
-        public Criteria andChemicalsIdBetween(Integer value1, Integer value2) {
+        public Criteria andChemicalsIdBetween(String value1, String value2) {
             addCriterion("chemicals_id between", value1, value2, "chemicalsId");
             return (Criteria) this;
         }
 
-        public Criteria andChemicalsIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andChemicalsIdNotBetween(String value1, String value2) {
             addCriterion("chemicals_id not between", value1, value2, "chemicalsId");
             return (Criteria) this;
         }
@@ -174,52 +185,62 @@ public class ChemicalsExample {
             return (Criteria) this;
         }
 
-        public Criteria andGrowIdEqualTo(Integer value) {
+        public Criteria andGrowIdEqualTo(String value) {
             addCriterion("grow_id =", value, "growId");
             return (Criteria) this;
         }
 
-        public Criteria andGrowIdNotEqualTo(Integer value) {
+        public Criteria andGrowIdNotEqualTo(String value) {
             addCriterion("grow_id <>", value, "growId");
             return (Criteria) this;
         }
 
-        public Criteria andGrowIdGreaterThan(Integer value) {
+        public Criteria andGrowIdGreaterThan(String value) {
             addCriterion("grow_id >", value, "growId");
             return (Criteria) this;
         }
 
-        public Criteria andGrowIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andGrowIdGreaterThanOrEqualTo(String value) {
             addCriterion("grow_id >=", value, "growId");
             return (Criteria) this;
         }
 
-        public Criteria andGrowIdLessThan(Integer value) {
+        public Criteria andGrowIdLessThan(String value) {
             addCriterion("grow_id <", value, "growId");
             return (Criteria) this;
         }
 
-        public Criteria andGrowIdLessThanOrEqualTo(Integer value) {
+        public Criteria andGrowIdLessThanOrEqualTo(String value) {
             addCriterion("grow_id <=", value, "growId");
             return (Criteria) this;
         }
 
-        public Criteria andGrowIdIn(List<Integer> values) {
+        public Criteria andGrowIdLike(String value) {
+            addCriterion("grow_id like", value, "growId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGrowIdNotLike(String value) {
+            addCriterion("grow_id not like", value, "growId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGrowIdIn(List<String> values) {
             addCriterion("grow_id in", values, "growId");
             return (Criteria) this;
         }
 
-        public Criteria andGrowIdNotIn(List<Integer> values) {
+        public Criteria andGrowIdNotIn(List<String> values) {
             addCriterion("grow_id not in", values, "growId");
             return (Criteria) this;
         }
 
-        public Criteria andGrowIdBetween(Integer value1, Integer value2) {
+        public Criteria andGrowIdBetween(String value1, String value2) {
             addCriterion("grow_id between", value1, value2, "growId");
             return (Criteria) this;
         }
 
-        public Criteria andGrowIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andGrowIdNotBetween(String value1, String value2) {
             addCriterion("grow_id not between", value1, value2, "growId");
             return (Criteria) this;
         }
@@ -493,6 +514,66 @@ public class ChemicalsExample {
             addCriterion("flag not between", value1, value2, "flag");
             return (Criteria) this;
         }
+
+        public Criteria andCreateTimeIsNull() {
+            addCriterion("create_time is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeIsNotNull() {
+            addCriterion("create_time is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeEqualTo(Date value) {
+            addCriterion("create_time =", value, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeNotEqualTo(Date value) {
+            addCriterion("create_time <>", value, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeGreaterThan(Date value) {
+            addCriterion("create_time >", value, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeGreaterThanOrEqualTo(Date value) {
+            addCriterion("create_time >=", value, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeLessThan(Date value) {
+            addCriterion("create_time <", value, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeLessThanOrEqualTo(Date value) {
+            addCriterion("create_time <=", value, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeIn(List<Date> values) {
+            addCriterion("create_time in", values, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeNotIn(List<Date> values) {
+            addCriterion("create_time not in", values, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeBetween(Date value1, Date value2) {
+            addCriterion("create_time between", value1, value2, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeNotBetween(Date value1, Date value2) {
+            addCriterion("create_time not between", value1, value2, "createTime");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {
@@ -518,38 +599,6 @@ public class ChemicalsExample {
         private boolean listValue;
 
         private String typeHandler;
-
-        public String getCondition() {
-            return condition;
-        }
-
-        public Object getValue() {
-            return value;
-        }
-
-        public Object getSecondValue() {
-            return secondValue;
-        }
-
-        public boolean isNoValue() {
-            return noValue;
-        }
-
-        public boolean isSingleValue() {
-            return singleValue;
-        }
-
-        public boolean isBetweenValue() {
-            return betweenValue;
-        }
-
-        public boolean isListValue() {
-            return listValue;
-        }
-
-        public String getTypeHandler() {
-            return typeHandler;
-        }
 
         protected Criterion(String condition) {
             super();
@@ -585,6 +634,38 @@ public class ChemicalsExample {
 
         protected Criterion(String condition, Object value, Object secondValue) {
             this(condition, value, secondValue, null);
+        }
+
+        public String getCondition() {
+            return condition;
+        }
+
+        public Object getValue() {
+            return value;
+        }
+
+        public Object getSecondValue() {
+            return secondValue;
+        }
+
+        public boolean isNoValue() {
+            return noValue;
+        }
+
+        public boolean isSingleValue() {
+            return singleValue;
+        }
+
+        public boolean isBetweenValue() {
+            return betweenValue;
+        }
+
+        public boolean isListValue() {
+            return listValue;
+        }
+
+        public String getTypeHandler() {
+            return typeHandler;
         }
     }
 }

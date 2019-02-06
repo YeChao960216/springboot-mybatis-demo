@@ -10,16 +10,18 @@ import java.util.UUID;
 public final class UIDUtil {
 
     /**
-     *      标准无"-"UUID
+     * 标准无"-"UUID
+     *
      * @return uuid 返回一个没有"-"的UUID
      */
     public String uuid() {
-       return UUID.randomUUID().toString().replace("-","").toUpperCase();
+        return UUID.randomUUID().toString().replace("-", "").toUpperCase();
     }
 
     /**
-     *      原生带"-"的标准UUID
-     * @return  uuid 返回一个带"-"的UUID
+     * 原生带"-"的标准UUID
+     *
+     * @return uuid 返回一个带"-"的UUID
      */
     public String originUUID() {
         return UUID.randomUUID().toString();

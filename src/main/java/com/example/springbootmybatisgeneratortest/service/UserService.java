@@ -2,14 +2,14 @@ package com.example.springbootmybatisgeneratortest.service;
 
 import com.example.springbootmybatisgeneratortest.pojo.User;
 
+import java.util.List;
+
 public interface UserService {
+    int insert(User entity) throws Exception;
 
-    void add(User user);
+    int update(User entity) throws Exception;
 
-    void delete(int id);
+    int delete(User entity) throws Exception;
 
-    void update(User user);
-
-    User get(int id);
-
+    List<User> select(User entity) throws Exception;
 }

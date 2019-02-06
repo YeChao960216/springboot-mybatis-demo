@@ -14,20 +14,20 @@ public class PrivilegeExample {
         oredCriteria = new ArrayList<Criteria>();
     }
 
-    public void setOrderByClause(String orderByClause) {
-        this.orderByClause = orderByClause;
-    }
-
     public String getOrderByClause() {
         return orderByClause;
     }
 
-    public void setDistinct(boolean distinct) {
-        this.distinct = distinct;
+    public void setOrderByClause(String orderByClause) {
+        this.orderByClause = orderByClause;
     }
 
     public boolean isDistinct() {
         return distinct;
+    }
+
+    public void setDistinct(boolean distinct) {
+        this.distinct = distinct;
     }
 
     public List<Criteria> getOredCriteria() {
@@ -114,52 +114,62 @@ public class PrivilegeExample {
             return (Criteria) this;
         }
 
-        public Criteria andPrivilegeIdEqualTo(Integer value) {
+        public Criteria andPrivilegeIdEqualTo(String value) {
             addCriterion("privilege_id =", value, "privilegeId");
             return (Criteria) this;
         }
 
-        public Criteria andPrivilegeIdNotEqualTo(Integer value) {
+        public Criteria andPrivilegeIdNotEqualTo(String value) {
             addCriterion("privilege_id <>", value, "privilegeId");
             return (Criteria) this;
         }
 
-        public Criteria andPrivilegeIdGreaterThan(Integer value) {
+        public Criteria andPrivilegeIdGreaterThan(String value) {
             addCriterion("privilege_id >", value, "privilegeId");
             return (Criteria) this;
         }
 
-        public Criteria andPrivilegeIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andPrivilegeIdGreaterThanOrEqualTo(String value) {
             addCriterion("privilege_id >=", value, "privilegeId");
             return (Criteria) this;
         }
 
-        public Criteria andPrivilegeIdLessThan(Integer value) {
+        public Criteria andPrivilegeIdLessThan(String value) {
             addCriterion("privilege_id <", value, "privilegeId");
             return (Criteria) this;
         }
 
-        public Criteria andPrivilegeIdLessThanOrEqualTo(Integer value) {
+        public Criteria andPrivilegeIdLessThanOrEqualTo(String value) {
             addCriterion("privilege_id <=", value, "privilegeId");
             return (Criteria) this;
         }
 
-        public Criteria andPrivilegeIdIn(List<Integer> values) {
+        public Criteria andPrivilegeIdLike(String value) {
+            addCriterion("privilege_id like", value, "privilegeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPrivilegeIdNotLike(String value) {
+            addCriterion("privilege_id not like", value, "privilegeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPrivilegeIdIn(List<String> values) {
             addCriterion("privilege_id in", values, "privilegeId");
             return (Criteria) this;
         }
 
-        public Criteria andPrivilegeIdNotIn(List<Integer> values) {
+        public Criteria andPrivilegeIdNotIn(List<String> values) {
             addCriterion("privilege_id not in", values, "privilegeId");
             return (Criteria) this;
         }
 
-        public Criteria andPrivilegeIdBetween(Integer value1, Integer value2) {
+        public Criteria andPrivilegeIdBetween(String value1, String value2) {
             addCriterion("privilege_id between", value1, value2, "privilegeId");
             return (Criteria) this;
         }
 
-        public Criteria andPrivilegeIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andPrivilegeIdNotBetween(String value1, String value2) {
             addCriterion("privilege_id not between", value1, value2, "privilegeId");
             return (Criteria) this;
         }
@@ -399,38 +409,6 @@ public class PrivilegeExample {
 
         private String typeHandler;
 
-        public String getCondition() {
-            return condition;
-        }
-
-        public Object getValue() {
-            return value;
-        }
-
-        public Object getSecondValue() {
-            return secondValue;
-        }
-
-        public boolean isNoValue() {
-            return noValue;
-        }
-
-        public boolean isSingleValue() {
-            return singleValue;
-        }
-
-        public boolean isBetweenValue() {
-            return betweenValue;
-        }
-
-        public boolean isListValue() {
-            return listValue;
-        }
-
-        public String getTypeHandler() {
-            return typeHandler;
-        }
-
         protected Criterion(String condition) {
             super();
             this.condition = condition;
@@ -465,6 +443,38 @@ public class PrivilegeExample {
 
         protected Criterion(String condition, Object value, Object secondValue) {
             this(condition, value, secondValue, null);
+        }
+
+        public String getCondition() {
+            return condition;
+        }
+
+        public Object getValue() {
+            return value;
+        }
+
+        public Object getSecondValue() {
+            return secondValue;
+        }
+
+        public boolean isNoValue() {
+            return noValue;
+        }
+
+        public boolean isSingleValue() {
+            return singleValue;
+        }
+
+        public boolean isBetweenValue() {
+            return betweenValue;
+        }
+
+        public boolean isListValue() {
+            return listValue;
+        }
+
+        public String getTypeHandler() {
+            return typeHandler;
         }
     }
 }

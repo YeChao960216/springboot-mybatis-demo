@@ -22,6 +22,7 @@ public class Block {
         String calculatedhash = StringUtil.applySha256(preHash + Long.toString(timeStamp) + Integer.toString(nonce) + data);
         return calculatedhash;
     }
+
     public void mineBlock(int difficulty) {
         String target = new String(new char[difficulty]).replace('\0', '0');
         while (!hash.substring(0, difficulty).equals(target)) {

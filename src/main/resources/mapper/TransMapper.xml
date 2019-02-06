@@ -1,328 +1,346 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.example.springbootmybatisgeneratortest.mapper.TransMapper" >
-  <resultMap id="BaseResultMap" type="com.example.springbootmybatisgeneratortest.pojo.Trans" >
-    <id column="trans_id" property="transId" jdbcType="VARCHAR" />
-    <result column="grow_id" property="growId" jdbcType="INTEGER" />
-    <result column="manufacture_id" property="manufactureId" jdbcType="INTEGER" />
-    <result column="car_num" property="carNum" jdbcType="VARCHAR" />
-    <result column="charge_name" property="chargeName" jdbcType="VARCHAR" />
-    <result column="charge_id" property="chargeId" jdbcType="VARCHAR" />
-    <result column="tran_date" property="tranDate" jdbcType="VARCHAR" />
-    <result column="temperature" property="temperature" jdbcType="DOUBLE" />
-    <result column="humidity" property="humidity" jdbcType="DOUBLE" />
-    <result column="lat" property="lat" jdbcType="DOUBLE" />
-    <result column="lng" property="lng" jdbcType="DOUBLE" />
-    <result column="trans_company" property="transCompany" jdbcType="VARCHAR" />
-    <result column="flag" property="flag" jdbcType="VARCHAR" />
-  </resultMap>
-  <sql id="Example_Where_Clause" >
-    <where >
-      <foreach collection="oredCriteria" item="criteria" separator="or" >
-        <if test="criteria.valid" >
-          <trim prefix="(" suffix=")" prefixOverrides="and" >
-            <foreach collection="criteria.criteria" item="criterion" >
-              <choose >
-                <when test="criterion.noValue" >
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue" >
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue" >
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue" >
-                  and ${criterion.condition}
-                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
+<mapper namespace="com.example.springbootmybatisgeneratortest.mapper.TransMapper">
+    <resultMap id="BaseResultMap" type="com.example.springbootmybatisgeneratortest.pojo.Trans">
+        <id column="trans_id" property="transId" jdbcType="VARCHAR"/>
+        <result column="grow_id" property="growId" jdbcType="VARCHAR"/>
+        <result column="manufacture_id" property="manufactureId" jdbcType="VARCHAR"/>
+        <result column="car_num" property="carNum" jdbcType="VARCHAR"/>
+        <result column="charge_name" property="chargeName" jdbcType="VARCHAR"/>
+        <result column="charge_id" property="chargeId" jdbcType="VARCHAR"/>
+        <result column="tran_date" property="tranDate" jdbcType="VARCHAR"/>
+        <result column="temperature" property="temperature" jdbcType="DOUBLE"/>
+        <result column="humidity" property="humidity" jdbcType="DOUBLE"/>
+        <result column="lat" property="lat" jdbcType="DOUBLE"/>
+        <result column="lng" property="lng" jdbcType="DOUBLE"/>
+        <result column="trans_company" property="transCompany" jdbcType="VARCHAR"/>
+        <result column="flag" property="flag" jdbcType="VARCHAR"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" suffix=")" prefixOverrides="and">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")"
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
             </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Update_By_Example_Where_Clause" >
-    <where >
-      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
-        <if test="criteria.valid" >
-          <trim prefix="(" suffix=")" prefixOverrides="and" >
-            <foreach collection="criteria.criteria" item="criterion" >
-              <choose >
-                <when test="criterion.noValue" >
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue" >
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue" >
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue" >
-                  and ${criterion.condition}
-                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
+        </where>
+    </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" suffix=")" prefixOverrides="and">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")"
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
             </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Base_Column_List" >
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
     trans_id, grow_id, manufacture_id, car_num, charge_name, charge_id, tran_date, temperature, 
-    humidity, lat, lng, trans_company, flag
+    humidity, lat, lng, trans_company, flag, create_time
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.springbootmybatisgeneratortest.pojo.TransExample" >
-    select
-    <if test="distinct" >
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    from trans
-    <if test="_parameter != null" >
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null" >
-      order by ${orderByClause}
-    </if>
-  </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
-    select 
-    <include refid="Base_Column_List" />
-    from trans
-    where trans_id = #{transId,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    <select id="selectByExample" resultMap="BaseResultMap"
+            parameterType="com.example.springbootmybatisgeneratortest.pojo.TransExample">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List"/>
+        from trans
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from trans
+        where trans_id = #{transId,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from trans
     where trans_id = #{transId,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="com.example.springbootmybatisgeneratortest.pojo.TransExample" >
-    delete from trans
-    <if test="_parameter != null" >
-      <include refid="Example_Where_Clause" />
-    </if>
-  </delete>
-  <insert id="insert" parameterType="com.example.springbootmybatisgeneratortest.pojo.Trans" >
+    <delete id="deleteByExample" parameterType="com.example.springbootmybatisgeneratortest.pojo.TransExample">
+        delete from trans
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </delete>
+    <insert id="insert" parameterType="com.example.springbootmybatisgeneratortest.pojo.Trans">
     insert into trans (trans_id, grow_id, manufacture_id, 
       car_num, charge_name, charge_id, 
       tran_date, temperature, humidity, 
       lat, lng, trans_company, 
-      flag)
-    values (#{transId,jdbcType=VARCHAR}, #{growId,jdbcType=INTEGER}, #{manufactureId,jdbcType=INTEGER}, 
+      flag, create_time)
+    values (#{transId,jdbcType=VARCHAR}, #{growId,jdbcType=VARCHAR}, #{manufactureId,jdbcType=VARCHAR}, 
       #{carNum,jdbcType=VARCHAR}, #{chargeName,jdbcType=VARCHAR}, #{chargeId,jdbcType=VARCHAR}, 
       #{tranDate,jdbcType=VARCHAR}, #{temperature,jdbcType=DOUBLE}, #{humidity,jdbcType=DOUBLE}, 
       #{lat,jdbcType=DOUBLE}, #{lng,jdbcType=DOUBLE}, #{transCompany,jdbcType=VARCHAR}, 
-      #{flag,jdbcType=VARCHAR})
+      #{flag,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.example.springbootmybatisgeneratortest.pojo.Trans" >
-    insert into trans
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="transId != null" >
-        trans_id,
-      </if>
-      <if test="growId != null" >
-        grow_id,
-      </if>
-      <if test="manufactureId != null" >
-        manufacture_id,
-      </if>
-      <if test="carNum != null" >
-        car_num,
-      </if>
-      <if test="chargeName != null" >
-        charge_name,
-      </if>
-      <if test="chargeId != null" >
-        charge_id,
-      </if>
-      <if test="tranDate != null" >
-        tran_date,
-      </if>
-      <if test="temperature != null" >
-        temperature,
-      </if>
-      <if test="humidity != null" >
-        humidity,
-      </if>
-      <if test="lat != null" >
-        lat,
-      </if>
-      <if test="lng != null" >
-        lng,
-      </if>
-      <if test="transCompany != null" >
-        trans_company,
-      </if>
-      <if test="flag != null" >
-        flag,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="transId != null" >
-        #{transId,jdbcType=VARCHAR},
-      </if>
-      <if test="growId != null" >
-        #{growId,jdbcType=INTEGER},
-      </if>
-      <if test="manufactureId != null" >
-        #{manufactureId,jdbcType=INTEGER},
-      </if>
-      <if test="carNum != null" >
-        #{carNum,jdbcType=VARCHAR},
-      </if>
-      <if test="chargeName != null" >
-        #{chargeName,jdbcType=VARCHAR},
-      </if>
-      <if test="chargeId != null" >
-        #{chargeId,jdbcType=VARCHAR},
-      </if>
-      <if test="tranDate != null" >
-        #{tranDate,jdbcType=VARCHAR},
-      </if>
-      <if test="temperature != null" >
-        #{temperature,jdbcType=DOUBLE},
-      </if>
-      <if test="humidity != null" >
-        #{humidity,jdbcType=DOUBLE},
-      </if>
-      <if test="lat != null" >
-        #{lat,jdbcType=DOUBLE},
-      </if>
-      <if test="lng != null" >
-        #{lng,jdbcType=DOUBLE},
-      </if>
-      <if test="transCompany != null" >
-        #{transCompany,jdbcType=VARCHAR},
-      </if>
-      <if test="flag != null" >
-        #{flag,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <select id="countByExample" parameterType="com.example.springbootmybatisgeneratortest.pojo.TransExample" resultType="java.lang.Integer" >
-    select count(*) from trans
-    <if test="_parameter != null" >
-      <include refid="Example_Where_Clause" />
-    </if>
-  </select>
-  <update id="updateByExampleSelective" parameterType="map" >
-    update trans
-    <set >
-      <if test="record.transId != null" >
-        trans_id = #{record.transId,jdbcType=VARCHAR},
-      </if>
-      <if test="record.growId != null" >
-        grow_id = #{record.growId,jdbcType=INTEGER},
-      </if>
-      <if test="record.manufactureId != null" >
-        manufacture_id = #{record.manufactureId,jdbcType=INTEGER},
-      </if>
-      <if test="record.carNum != null" >
+    <insert id="insertSelective" parameterType="com.example.springbootmybatisgeneratortest.pojo.Trans">
+        insert into trans
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="transId != null">
+                trans_id,
+            </if>
+            <if test="growId != null">
+                grow_id,
+            </if>
+            <if test="manufactureId != null">
+                manufacture_id,
+            </if>
+            <if test="carNum != null">
+                car_num,
+            </if>
+            <if test="chargeName != null">
+                charge_name,
+            </if>
+            <if test="chargeId != null">
+                charge_id,
+            </if>
+            <if test="tranDate != null">
+                tran_date,
+            </if>
+            <if test="temperature != null">
+                temperature,
+            </if>
+            <if test="humidity != null">
+                humidity,
+            </if>
+            <if test="lat != null">
+                lat,
+            </if>
+            <if test="lng != null">
+                lng,
+            </if>
+            <if test="transCompany != null">
+                trans_company,
+            </if>
+            <if test="flag != null">
+                flag,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="transId != null">
+                #{transId,jdbcType=VARCHAR},
+            </if>
+            <if test="growId != null">
+                #{growId,jdbcType=VARCHAR},
+            </if>
+            <if test="manufactureId != null">
+                #{manufactureId,jdbcType=VARCHAR},
+            </if>
+            <if test="carNum != null">
+                #{carNum,jdbcType=VARCHAR},
+            </if>
+            <if test="chargeName != null">
+                #{chargeName,jdbcType=VARCHAR},
+            </if>
+            <if test="chargeId != null">
+                #{chargeId,jdbcType=VARCHAR},
+            </if>
+            <if test="tranDate != null">
+                #{tranDate,jdbcType=VARCHAR},
+            </if>
+            <if test="temperature != null">
+                #{temperature,jdbcType=DOUBLE},
+            </if>
+            <if test="humidity != null">
+                #{humidity,jdbcType=DOUBLE},
+            </if>
+            <if test="lat != null">
+                #{lat,jdbcType=DOUBLE},
+            </if>
+            <if test="lng != null">
+                #{lng,jdbcType=DOUBLE},
+            </if>
+            <if test="transCompany != null">
+                #{transCompany,jdbcType=VARCHAR},
+            </if>
+            <if test="flag != null">
+                #{flag,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <select id="countByExample" parameterType="com.example.springbootmybatisgeneratortest.pojo.TransExample"
+            resultType="java.lang.Integer">
+        select count(*) from trans
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
+        update trans
+        <set>
+            <if test="record.transId != null">
+                trans_id = #{record.transId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.growId != null">
+                grow_id = #{record.growId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.manufactureId != null">
+                manufacture_id = #{record.manufactureId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.carNum != null">
+                car_num = #{record.carNum,jdbcType=VARCHAR},
+            </if>
+            <if test="record.chargeName != null">
+                charge_name = #{record.chargeName,jdbcType=VARCHAR},
+            </if>
+            <if test="record.chargeId != null">
+                charge_id = #{record.chargeId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.tranDate != null">
+                tran_date = #{record.tranDate,jdbcType=VARCHAR},
+            </if>
+            <if test="record.temperature != null">
+                temperature = #{record.temperature,jdbcType=DOUBLE},
+            </if>
+            <if test="record.humidity != null">
+                humidity = #{record.humidity,jdbcType=DOUBLE},
+            </if>
+            <if test="record.lat != null">
+                lat = #{record.lat,jdbcType=DOUBLE},
+            </if>
+            <if test="record.lng != null">
+                lng = #{record.lng,jdbcType=DOUBLE},
+            </if>
+            <if test="record.transCompany != null">
+                trans_company = #{record.transCompany,jdbcType=VARCHAR},
+            </if>
+            <if test="record.flag != null">
+                flag = #{record.flag,jdbcType=VARCHAR},
+            </if>
+            <if test="record.createTime != null">
+                create_time = #{record.createTime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByExample" parameterType="map">
+        update trans
+        set trans_id = #{record.transId,jdbcType=VARCHAR},
+        grow_id = #{record.growId,jdbcType=VARCHAR},
+        manufacture_id = #{record.manufactureId,jdbcType=VARCHAR},
         car_num = #{record.carNum,jdbcType=VARCHAR},
-      </if>
-      <if test="record.chargeName != null" >
         charge_name = #{record.chargeName,jdbcType=VARCHAR},
-      </if>
-      <if test="record.chargeId != null" >
         charge_id = #{record.chargeId,jdbcType=VARCHAR},
-      </if>
-      <if test="record.tranDate != null" >
         tran_date = #{record.tranDate,jdbcType=VARCHAR},
-      </if>
-      <if test="record.temperature != null" >
         temperature = #{record.temperature,jdbcType=DOUBLE},
-      </if>
-      <if test="record.humidity != null" >
         humidity = #{record.humidity,jdbcType=DOUBLE},
-      </if>
-      <if test="record.lat != null" >
         lat = #{record.lat,jdbcType=DOUBLE},
-      </if>
-      <if test="record.lng != null" >
         lng = #{record.lng,jdbcType=DOUBLE},
-      </if>
-      <if test="record.transCompany != null" >
         trans_company = #{record.transCompany,jdbcType=VARCHAR},
-      </if>
-      <if test="record.flag != null" >
         flag = #{record.flag,jdbcType=VARCHAR},
-      </if>
-    </set>
-    <if test="_parameter != null" >
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByExample" parameterType="map" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP}
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByPrimaryKeySelective" parameterType="com.example.springbootmybatisgeneratortest.pojo.Trans">
+        update trans
+        <set>
+            <if test="growId != null">
+                grow_id = #{growId,jdbcType=VARCHAR},
+            </if>
+            <if test="manufactureId != null">
+                manufacture_id = #{manufactureId,jdbcType=VARCHAR},
+            </if>
+            <if test="carNum != null">
+                car_num = #{carNum,jdbcType=VARCHAR},
+            </if>
+            <if test="chargeName != null">
+                charge_name = #{chargeName,jdbcType=VARCHAR},
+            </if>
+            <if test="chargeId != null">
+                charge_id = #{chargeId,jdbcType=VARCHAR},
+            </if>
+            <if test="tranDate != null">
+                tran_date = #{tranDate,jdbcType=VARCHAR},
+            </if>
+            <if test="temperature != null">
+                temperature = #{temperature,jdbcType=DOUBLE},
+            </if>
+            <if test="humidity != null">
+                humidity = #{humidity,jdbcType=DOUBLE},
+            </if>
+            <if test="lat != null">
+                lat = #{lat,jdbcType=DOUBLE},
+            </if>
+            <if test="lng != null">
+                lng = #{lng,jdbcType=DOUBLE},
+            </if>
+            <if test="transCompany != null">
+                trans_company = #{transCompany,jdbcType=VARCHAR},
+            </if>
+            <if test="flag != null">
+                flag = #{flag,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where trans_id = #{transId,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.example.springbootmybatisgeneratortest.pojo.Trans">
     update trans
-    set trans_id = #{record.transId,jdbcType=VARCHAR},
-      grow_id = #{record.growId,jdbcType=INTEGER},
-      manufacture_id = #{record.manufactureId,jdbcType=INTEGER},
-      car_num = #{record.carNum,jdbcType=VARCHAR},
-      charge_name = #{record.chargeName,jdbcType=VARCHAR},
-      charge_id = #{record.chargeId,jdbcType=VARCHAR},
-      tran_date = #{record.tranDate,jdbcType=VARCHAR},
-      temperature = #{record.temperature,jdbcType=DOUBLE},
-      humidity = #{record.humidity,jdbcType=DOUBLE},
-      lat = #{record.lat,jdbcType=DOUBLE},
-      lng = #{record.lng,jdbcType=DOUBLE},
-      trans_company = #{record.transCompany,jdbcType=VARCHAR},
-      flag = #{record.flag,jdbcType=VARCHAR}
-    <if test="_parameter != null" >
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.springbootmybatisgeneratortest.pojo.Trans" >
-    update trans
-    <set >
-      <if test="growId != null" >
-        grow_id = #{growId,jdbcType=INTEGER},
-      </if>
-      <if test="manufactureId != null" >
-        manufacture_id = #{manufactureId,jdbcType=INTEGER},
-      </if>
-      <if test="carNum != null" >
-        car_num = #{carNum,jdbcType=VARCHAR},
-      </if>
-      <if test="chargeName != null" >
-        charge_name = #{chargeName,jdbcType=VARCHAR},
-      </if>
-      <if test="chargeId != null" >
-        charge_id = #{chargeId,jdbcType=VARCHAR},
-      </if>
-      <if test="tranDate != null" >
-        tran_date = #{tranDate,jdbcType=VARCHAR},
-      </if>
-      <if test="temperature != null" >
-        temperature = #{temperature,jdbcType=DOUBLE},
-      </if>
-      <if test="humidity != null" >
-        humidity = #{humidity,jdbcType=DOUBLE},
-      </if>
-      <if test="lat != null" >
-        lat = #{lat,jdbcType=DOUBLE},
-      </if>
-      <if test="lng != null" >
-        lng = #{lng,jdbcType=DOUBLE},
-      </if>
-      <if test="transCompany != null" >
-        trans_company = #{transCompany,jdbcType=VARCHAR},
-      </if>
-      <if test="flag != null" >
-        flag = #{flag,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where trans_id = #{transId,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.springbootmybatisgeneratortest.pojo.Trans" >
-    update trans
-    set grow_id = #{growId,jdbcType=INTEGER},
-      manufacture_id = #{manufactureId,jdbcType=INTEGER},
+    set grow_id = #{growId,jdbcType=VARCHAR},
+      manufacture_id = #{manufactureId,jdbcType=VARCHAR},
       car_num = #{carNum,jdbcType=VARCHAR},
       charge_name = #{chargeName,jdbcType=VARCHAR},
       charge_id = #{chargeId,jdbcType=VARCHAR},
@@ -332,7 +350,8 @@
       lat = #{lat,jdbcType=DOUBLE},
       lng = #{lng,jdbcType=DOUBLE},
       trans_company = #{transCompany,jdbcType=VARCHAR},
-      flag = #{flag,jdbcType=VARCHAR}
+      flag = #{flag,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
     where trans_id = #{transId,jdbcType=VARCHAR}
   </update>
 </mapper>

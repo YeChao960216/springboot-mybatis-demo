@@ -1,7 +1,9 @@
 package com.example.springbootmybatisgeneratortest.pojo;
 
+import java.util.Date;
+
 public class User {
-    private Integer userId;
+    private String userId;
 
     private String name;
 
@@ -19,12 +21,14 @@ public class User {
 
     private String flag;
 
-    public Integer getUserId() {
+    private Date createTime;
+
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setUserId(String userId) {
+        this.userId = userId == null ? null : userId.trim();
     }
 
     public String getName() {
@@ -89,5 +93,13 @@ public class User {
 
     public void setFlag(String flag) {
         this.flag = flag == null ? null : flag.trim();
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 }
